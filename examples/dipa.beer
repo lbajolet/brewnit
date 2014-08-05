@@ -1,0 +1,93 @@
+RECIPE "Quart de siècle"
+	volume: 22 L
+	mash_temp: 66.7 C
+EQUIPMENT "Home"
+	efficiency: 65
+	volume: 30 L
+FERMENTABLES
+	GRAIN "Two Row"
+		potential: 1.038 SG
+		colour: 3.9 EBC
+		quantity: 6000 g
+	GRAIN "Cara-Pils"
+		potential: 1.033 SG
+		colour: 3.9 EBC
+		quantity: 500 g
+	GRAIN "Crystal 40"
+		potential: 1.034 SG
+		colour: 40 SRM
+		quantity: 500 g
+	SUGAR "Corn Syrup"
+		potential: 1.037 SG
+		colour: 2 EBC
+		quantity: 340 g
+HOPS
+	HOP "Columbus"
+		alpha: 17.2
+		quantity: 22 g
+		time: 60 min
+		type: Leaf
+		use: Boil
+	HOP "Columbus"
+		alpha: 17.2
+		quantity: 15 g
+		time: 45 min
+		type: Leaf
+		use: Boil
+	HOP "Simcoe"
+		alpha: 15.4
+		quantity: 30 g
+		time: 30 min
+		type: Leaf
+		use: Boil
+	HOP "Simcoe"
+		alpha: 15.4
+		quantity: 70 g
+		time: 0 min
+		type: Leaf
+		use: Boil
+	HOP "Centennial"
+		alpha: 9.6
+		quantity: 30 g
+		time: 0 min
+		type: Leaf
+		use: Boil
+	HOP "Centennial"
+		alpha: 9.6
+		quantity: 30 g
+		time: 14 days
+		type: Leaf
+		use: DryHop
+	HOP "Centennial"
+		alpha: 9.6
+		quantity: 30 g
+		time: 1 week
+		type: Leaf
+		use: DryHop
+	HOP "Columbus"
+		alpha: 17.2
+		quantity: 30 g
+		time: 2 weeks
+		type: Leaf
+		use: DryHop
+	HOP "Columbus"
+		alpha: 17.2
+		quantity: 10 g
+		time: 1 week
+		type: Leaf
+		use: DryHop
+	HOP "Simcoe"
+		alpha: 15.4
+		quantity: 30 g
+		time: 2 weeks
+		type: Leaf
+		use: DryHop
+	HOP "Simcoe"
+		alpha: 15.4
+		quantity: 10 g
+		time: 1 week
+		type: Leaf
+		use: DryHop
+YEAST "US-05"
+	flocculation: medium
+	attenuation: 78
