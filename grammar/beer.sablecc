@@ -1,0 +1,76 @@
+Grammar beer;
+
+Lexer
+
+number = (int+ | float);
+float = int* '.' int+;
+int = '0'..'9';
+string = '"' (Any - '"')+ '"';
+
+kw_recipe = 'RECIPE';
+kw_equipment = 'EQUIPMENT';
+kw_fermentables = 'FERMENTABLES';
+kw_grain = 'GRAIN';
+kw_adjunct = 'ADJUNCT';
+kw_sugar = 'SUGAR';
+kw_extract = 'EXTRACT';
+kw_hops = 'HOPS';
+kw_hop = 'HOP';
+kw_yeast = 'YEAST';
+
+hop_type = ('Leaf' | 'Pellet');
+hop_use = ('Boil' | 'DryHop');
+
+flocculation_type = ('low' | 'medium' | 'high');
+
+blank = (' ' | '\n' | '\t')+ ;
+
+volume_unit = ('Gal'|'L'|'ImpGal');
+temp_unit = ('C'|'F');
+gravity_unit = ('SG' | 'GU');
+colour_unit = ('SRM' | 'EBC');
+weight_unit = ('g' | 'oz' | 'lbs');
+time_unit = ('s' | 'min' | 'h' | ('day'('s')?) | ('week'('s')?));
+
+Parser
+Ignored blank;
+
+prog = recipe equipment fermentables hops yeast;
+
+volume = 'volume' ':' number volume_unit ;
+
+recipe = kw_recipe string recipe_body+;
+recipe_body =
+	{volume:} volume |
+	{mash_temp:} 'mash_temp' ':' number temp_unit ;
+
+equipment = kw_equipment string equipment_body+ ;
+equipment_body =
+	{volume:} volume |
+	{efficiency:} 'efficiency' ':' number ;
+
+fermentables = kw_fermentables compound+ ;
+compound =
+	{grain:} kw_grain string compound_body+ |
+	{adjunct:} kw_adjunct string compound_body+ |
+	{sugar:} kw_sugar string compound_body+ |
+	{extract:} kw_extract string compound_body+ ;
+
+compound_body =
+	{potential:} 'potential' ':' number gravity_unit |
+	{colour:} 'colour' ':' number colour_unit |
+	{quantity:} 'quantity' ':' number weight_unit;
+
+hops = kw_hops hop_profile+;
+hop_profile = kw_hop string hop_profile_body+;
+hop_profile_body =
+	{aa:} 'alpha' ':' number |
+	{quantity:} 'quantity' ':' number weight_unit |
+	{time:} 'time' ':' number time_unit |
+	{type:} 'type' ':' hop_type |
+	{use:}'use' ':' hop_use;
+
+yeast = kw_yeast string yeast_body+;
+yeast_body =
+	{floc:}'flocculation' ':' flocculation_type |
+	{att:}'attenuation' ':' number;
