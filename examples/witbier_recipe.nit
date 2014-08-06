@@ -1,4 +1,5 @@
 import recipe
+import html_gen
 
 var wit = new Recipe("MTL Wit", new Liter(22.0), new Celsius(65.67))
 var eq = new Equipment("Home", .70, new Liter(30.0))
@@ -45,3 +46,7 @@ print "Estimated colour = {wit.colour.to_ebc} EBC"
 print "Efficiency = {wit.efficiency}%"
 print "Estimated FG = {wit.estimated_fg.to_sg} SG"
 print "Estimated ABV = {wit.estimated_abv} %"
+
+var out = new OFStream.open("MTL Wit.html")
+
+wit.write_to out

@@ -1,4 +1,5 @@
 import recipe
+import html_gen
 
 var dipa = new Recipe("1/4 Century DIPA", new Liter(22.0), new Celsius(67.0))
 var eq = new Equipment("Home", .7, new Liter(30.0))
@@ -62,3 +63,6 @@ print "Efficiency = {dipa.efficiency}%"
 print "Estimated ABV = {dipa.estimated_abv} %"
 print "Effective ABV = {dipa.effective_abv} %"
 
+var out = new OFStream.open("DIPA.html")
+
+dipa.write out
