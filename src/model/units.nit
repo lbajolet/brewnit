@@ -12,6 +12,13 @@ abstract class Unit
 	var value: Float
 end
 
+abstract class UnitFactory
+
+	type SELF: Unit
+
+	fun build_unit(val: Float, s: String): SELF is abstract
+end
+
 # Abstract colour value, expressed in either SRM or EBC
 abstract class Colour
 	super Unit
@@ -21,6 +28,24 @@ abstract class Colour
 
 	# Converts the value to EBC units
 	fun to_ebc: EBC is abstract
+end
+
+class ColourFactory
+	super UnitFactory
+
+	redef type SELF: Colour
+
+	redef fun build_unit(val, s) do
+		if s == "SRM" then
+			return new SRM(val)
+		else if s == "EBC" then
+			return new EBC(val)
+		else
+			print "Cannot find colour unit {s}"
+			exit(-1)
+		end
+	end
+
 end
 
 # Colour, in SRM (Standard Reference Method) units
@@ -57,6 +82,26 @@ abstract class Weight
 
 	# Converts the weight into pounds
 	fun to_lbs: Pound is abstract
+end
+
+class WeightFactory
+	super UnitFactory
+
+	redef type SELF: Weight
+
+	redef fun build_unit(val, s) do
+		if s == "g" then
+			return new Gram(val)
+		else if s == "oz" then
+			return new Ounce(val)
+		else if s == "lbs" then
+			return new Pound(val)
+		else
+			print "Cannot find weight unit {s}"
+			exit(-1)
+		end
+	end
+
 end
 
 # Weight unit, an oz is worth 28.3495231 g
