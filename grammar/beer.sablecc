@@ -39,10 +39,17 @@ prog = recipe equipment fermentables hops yeast;
 
 volume = 'volume' ':' number volume_unit ;
 
+volunit = number volume_unit;
+tmpunit = number temp_unit;
+grvunit = number gravity_unit;
+colunit = number colour_unit;
+weiunit = number weight_unit;
+timunit = number time_unit;
+
 recipe = kw_recipe string recipe_body+;
 recipe_body =
 	{volume:} volume |
-	{mash_temp:} 'mash_temp' ':' number temp_unit ;
+	{mash_temp:} 'mash_temp' ':' tmpunit ;
 
 equipment = kw_equipment string equipment_body+ ;
 equipment_body =
@@ -57,16 +64,16 @@ compound =
 	{extract:} kw_extract string compound_body+ ;
 
 compound_body =
-	{potential:} 'potential' ':' number gravity_unit |
-	{colour:} 'colour' ':' number colour_unit |
-	{quantity:} 'quantity' ':' number weight_unit;
+	{potential:} 'potential' ':' grvunit |
+	{colour:} 'colour' ':' colunit |
+	{quantity:} 'quantity' ':' weiunit;
 
 hops = kw_hops hop_profile+;
 hop_profile = kw_hop string hop_profile_body+;
 hop_profile_body =
 	{aa:} 'alpha' ':' number |
-	{quantity:} 'quantity' ':' number weight_unit |
-	{time:} 'time' ':' number time_unit |
+	{quantity:} 'quantity' ':' weiunit |
+	{time:} 'time' ':' timunit |
 	{type:} 'type' ':' hop_type |
 	{use:}'use' ':' hop_use;
 
