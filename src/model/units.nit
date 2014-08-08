@@ -42,7 +42,7 @@ class ColourFactory
 			return new EBC(val)
 		else
 			print "Cannot find colour unit {s}"
-			exit(-1)
+			abort
 		end
 	end
 
@@ -98,7 +98,7 @@ class WeightFactory
 			return new Pound(val)
 		else
 			print "Cannot find weight unit {s}"
-			exit(-1)
+			abort
 		end
 	end
 
@@ -154,6 +154,27 @@ abstract class Volume
 	fun to_imp_gal: ImperialGallon is abstract
 
 	fun to_l: Liter is abstract
+end
+
+class VolumeFactory
+	super UnitFactory
+
+	redef type SELF: Volume
+
+	redef fun build_unit(val, s) do
+		if s == "gal" then
+			return new USGallon(val)
+		else if s == "L" then
+			return new Liter(val)
+		else if s == "ImpGal" then
+			return new ImperialGallon(val)
+		else if s == "qt" then
+			return new USQuart(val)
+		else
+			print "Unknown volume unit {s}"
+			abort
+		end
+	end
 end
 
 # Volume unit, standard measurement in the USA
@@ -229,6 +250,26 @@ abstract class Gravity
 	fun to_plato: Plato is abstract
 end
 
+class GravityFactory
+	super UnitFactory
+
+	redef type SELF: Gravity
+
+	redef fun build_unit(val, s)
+	do
+		if s == "SG" then
+			return new SG(val)
+		else if s == "GU" then
+			return new GU(val)
+		else if s == "P" then
+			return new Plato(val)
+		else
+			print "Unknown gravity unit {s}"
+			abort
+		end
+	end
+end
+
 # Specific Gravity
 class SG
 	super Gravity
@@ -274,6 +315,24 @@ abstract class Temperature
 	fun to_c: Celsius is abstract
 end
 
+class TemperatureFactory
+	super UnitFactory
+
+	redef type SELF: Temperature
+
+	redef fun build_unit(val, s) do
+		if s == "F" then
+			return new Fahrenheit(val)
+		else if s == "C" then
+			return new Celsius(val)
+		else
+			print "Unknown temperature unit {s}"
+			abort
+		end
+	end
+
+end
+
 class Fahrenheit
 	super Temperature
 
@@ -306,6 +365,29 @@ abstract class Time
 	fun to_days: Day is abstract
 
 	fun to_weeks: Week is abstract
+end
+
+class TimeFactory
+	super UnitFactory
+
+	redef type SELF: Time
+
+	redef fun build_unit(val, s) do
+		if s == "min" then
+			return new Minute(val)
+		else if s == "h" then
+			return new Hour(val)
+		else if s == "s" then
+			return new Second(val)
+		else if s == "days" or s == "day" then
+			return new Day(val)
+		else if s == "weeks" or s == "week" then
+			return new Week(val)
+		else
+			print "Unknown time unit {s}"
+			abort
+		end
+	end
 end
 
 class Minute
