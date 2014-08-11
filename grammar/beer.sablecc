@@ -37,8 +37,6 @@ Ignored blank;
 
 prog = recipe equipment fermentables hops yeast;
 
-volume = 'volume' ':' number volume_unit ;
-
 volunit = number volume_unit;
 tmpunit = number temp_unit;
 grvunit = number gravity_unit;
@@ -48,12 +46,12 @@ timunit = number time_unit;
 
 recipe = kw_recipe string recipe_body+;
 recipe_body =
-	{volume:} volume |
+	{volume:} 'volume' ':' volunit |
 	{mash_temp:} 'mash_temp' ':' tmpunit ;
 
 equipment = kw_equipment string equipment_body+ ;
 equipment_body =
-	{volume:} volume |
+	{volume:} 'volume' ':' volunit |
 	{efficiency:} 'efficiency' ':' number ;
 
 fermentables = kw_fermentables compound+ ;

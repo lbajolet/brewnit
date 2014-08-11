@@ -18,7 +18,6 @@ redef class Object
 	private fun state_recipe_32dkw_equipment_32dstring: LRStaterecipe_32dkw_equipment_32dstring do return once new LRStaterecipe_32dkw_equipment_32dstring
 	private fun state_kw_recipe_32dstring_32drecipe_body_43d: LRStatekw_recipe_32dstring_32drecipe_body_43d do return once new LRStatekw_recipe_32dstring_32drecipe_body_43d
 	private fun state_kw_recipe_32dstring_32drecipe_body: LRStatekw_recipe_32dstring_32drecipe_body do return once new LRStatekw_recipe_32dstring_32drecipe_body
-	private fun state_kw_recipe_32dstring_32dvolume: LRStatekw_recipe_32dstring_32dvolume do return once new LRStatekw_recipe_32dstring_32dvolume
 	private fun state_kw_recipe_32dstring_32d_39dvolume_39d: LRStatekw_recipe_32dstring_32d_39dvolume_39d do return once new LRStatekw_recipe_32dstring_32d_39dvolume_39d
 	private fun state_kw_recipe_32dstring_32d_39dmash_temp_39d: LRStatekw_recipe_32dstring_32d_39dmash_temp_39d do return once new LRStatekw_recipe_32dstring_32d_39dmash_temp_39d
 	private fun state_recipe_32dequipment_32dfermentables_32dhops: LRStaterecipe_32dequipment_32dfermentables_32dhops do return once new LRStaterecipe_32dequipment_32dfermentables_32dhops
@@ -31,7 +30,7 @@ redef class Object
 	private fun state_recipe_32dequipment_32dkw_fermentables_32dkw_extract: LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_extract do return once new LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_extract
 	private fun state_recipe_32dkw_equipment_32dstring_32dequipment_body_43d: LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body_43d do return once new LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body_43d
 	private fun state_recipe_32dkw_equipment_32dstring_32dequipment_body: LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body do return once new LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body
-	private fun state_recipe_32dkw_equipment_32dstring_32dvolume: LRStaterecipe_32dkw_equipment_32dstring_32dvolume do return once new LRStaterecipe_32dkw_equipment_32dstring_32dvolume
+	private fun state_recipe_32dkw_equipment_32dstring_32d_39dvolume_39d: LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d do return once new LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d
 	private fun state_recipe_32dkw_equipment_32dstring_32d_39defficiency_39d: LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d do return once new LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d
 	private fun state_kw_recipe_32dstring_32drecipe_body_43d_32drecipe_body: LRStatekw_recipe_32dstring_32drecipe_body_43d_32drecipe_body do return once new LRStatekw_recipe_32dstring_32drecipe_body_43d_32drecipe_body
 	private fun state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d: LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d do return once new LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d
@@ -47,7 +46,9 @@ redef class Object
 	private fun state_recipe_32dequipment_32dkw_fermentables_32dkw_sugar_32dstring: LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_sugar_32dstring do return once new LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_sugar_32dstring
 	private fun state_recipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstring: LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstring do return once new LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstring
 	private fun state_recipe_32dkw_equipment_32dstring_32dequipment_body_43d_32dequipment_body: LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body_43d_32dequipment_body do return once new LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body_43d_32dequipment_body
+	private fun state_recipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d: LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d do return once new LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d
 	private fun state_recipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d: LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d do return once new LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d
+	private fun state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit: LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit do return once new LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit
 	private fun state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnumber: LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnumber do return once new LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnumber
 	private fun state_kw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dtmpunit: LRStatekw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dtmpunit do return once new LRStatekw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dtmpunit
 	private fun state_kw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dnumber: LRStatekw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dnumber do return once new LRStatekw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dnumber
@@ -62,6 +63,7 @@ redef class Object
 	private fun state_recipe_32dequipment_32dkw_fermentables_32dkw_adjunct_32dstring_32dcompound_body_43d: LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_adjunct_32dstring_32dcompound_body_43d do return once new LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_adjunct_32dstring_32dcompound_body_43d
 	private fun state_recipe_32dequipment_32dkw_fermentables_32dkw_sugar_32dstring_32dcompound_body_43d: LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_sugar_32dstring_32dcompound_body_43d do return once new LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_sugar_32dstring_32dcompound_body_43d
 	private fun state_recipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstring_32dcompound_body_43d: LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstring_32dcompound_body_43d do return once new LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstring_32dcompound_body_43d
+	private fun state_recipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit: LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit do return once new LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit
 	private fun state_recipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d_32dnumber: LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d_32dnumber do return once new LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d_32dnumber
 	private fun state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnumber_32dvolume_unit: LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnumber_32dvolume_unit do return once new LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnumber_32dvolume_unit
 	private fun state_kw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dnumber_32dtemp_unit: LRStatekw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dnumber_32dtemp_unit do return once new LRStatekw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dnumber_32dtemp_unit
@@ -108,7 +110,6 @@ redef class Object
 	private fun state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dquantity_39d_32d_39d_58d_39d_32dnumber_32dweight_unit: LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dquantity_39d_32d_39d_58d_39d_32dnumber_32dweight_unit do return once new LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dquantity_39d_32d_39d_58d_39d_32dnumber_32dweight_unit
 	private fun state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtime_39d_32d_39d_58d_39d_32dnumber_32dtime_unit: LRStaterecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtime_39d_32d_39d_58d_39d_32dnumber_32dtime_unit do return once new LRStaterecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtime_39d_32d_39d_58d_39d_32dnumber_32dtime_unit
 	private fun goto_Nprog: Goto_Nprog do return once new Goto_Nprog
-	private fun goto_Nvolume: Goto_Nvolume do return once new Goto_Nvolume
 	private fun goto_Nvolunit: Goto_Nvolunit do return once new Goto_Nvolunit
 	private fun goto_Ntmpunit: Goto_Ntmpunit do return once new Goto_Ntmpunit
 	private fun goto_Ngrvunit: Goto_Ngrvunit do return once new Goto_Ngrvunit
@@ -262,6 +263,11 @@ redef class NToken
 		parser.node_stack.push prod
 		parser.goto(goto_Nequipment)
 	end
+	# guarded action for state recipe kw_equipment string 'volume'
+	# 1 shift(s) and 0 reduce(s)
+	private fun action_srecipe_32dkw_equipment_32dstring_32d_39dvolume_39d(parser: Parser) do
+		parser.parse_error
+	end
 	# guarded action for state recipe kw_equipment string 'efficiency'
 	# 1 shift(s) and 0 reduce(s)
 	private fun action_srecipe_32dkw_equipment_32dstring_32d_39defficiency_39d(parser: Parser) do
@@ -316,6 +322,11 @@ redef class NToken
 	# guarded action for state recipe equipment kw_fermentables kw_extract string
 	# 3 shift(s) and 0 reduce(s)
 	private fun action_srecipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstring(parser: Parser) do
+		parser.parse_error
+	end
+	# guarded action for state recipe kw_equipment string 'volume' ':'
+	# 1 shift(s) and 0 reduce(s)
+	private fun action_srecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d(parser: Parser) do
 		parser.parse_error
 	end
 	# guarded action for state recipe kw_equipment string 'efficiency' ':'
@@ -536,65 +547,6 @@ redef class NToken
 		parser.parse_error
 	end
 end
-class N_39dvolume_39d
-	super NToken
-	redef fun action_skw_recipe_32dstring(parser) do
-		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d)
-	end
-	redef fun action_srecipe_32dkw_equipment_32dstring(parser) do
-		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d)
-	end
-	redef fun action_skw_recipe_32dstring_32drecipe_body_43d(parser) do
-		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d)
-	end
-	redef fun action_srecipe_32dkw_equipment_32dstring_32dequipment_body_43d(parser) do
-		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d)
-	end
-	redef fun node_name do return "\'volume\'"
-end
-class N_39d_58d_39d
-	super NToken
-	redef fun action_skw_recipe_32dstring_32d_39dvolume_39d(parser) do
-		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d)
-	end
-	redef fun action_skw_recipe_32dstring_32d_39dmash_temp_39d(parser) do
-		parser.shift(state_kw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dkw_equipment_32dstring_32d_39defficiency_39d(parser) do
-		parser.shift(state_recipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dpotential_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dpotential_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dcolour_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dcolour_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dquantity_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dquantity_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dflocculation_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dflocculation_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dattenuation_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dattenuation_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dalpha_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dalpha_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dquantity_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dquantity_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtime_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtime_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtype_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtype_39d_32d_39d_58d_39d)
-	end
-	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39duse_39d(parser) do
-		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39duse_39d_32d_39d_58d_39d)
-	end
-	redef fun node_name do return "\':\'"
-end
 class Nnumber
 	super NToken
 	redef fun action_skw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d(parser) do
@@ -602,6 +554,9 @@ class Nnumber
 	end
 	redef fun action_skw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d(parser) do
 		parser.shift(state_kw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d_32dnumber)
+	end
+	redef fun action_srecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d(parser) do
+		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnumber)
 	end
 	redef fun action_srecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d(parser) do
 		parser.shift(state_recipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d_32dnumber)
@@ -705,6 +660,68 @@ class Nstring
 		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring)
 	end
 	redef fun node_name do return "string"
+end
+class N_39dvolume_39d
+	super NToken
+	redef fun action_skw_recipe_32dstring(parser) do
+		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d)
+	end
+	redef fun action_srecipe_32dkw_equipment_32dstring(parser) do
+		parser.shift(state_recipe_32dkw_equipment_32dstring_32d_39dvolume_39d)
+	end
+	redef fun action_skw_recipe_32dstring_32drecipe_body_43d(parser) do
+		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d)
+	end
+	redef fun action_srecipe_32dkw_equipment_32dstring_32dequipment_body_43d(parser) do
+		parser.shift(state_recipe_32dkw_equipment_32dstring_32d_39dvolume_39d)
+	end
+	redef fun node_name do return "\'volume\'"
+end
+class N_39d_58d_39d
+	super NToken
+	redef fun action_skw_recipe_32dstring_32d_39dvolume_39d(parser) do
+		parser.shift(state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d)
+	end
+	redef fun action_skw_recipe_32dstring_32d_39dmash_temp_39d(parser) do
+		parser.shift(state_kw_recipe_32dstring_32d_39dmash_temp_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dkw_equipment_32dstring_32d_39dvolume_39d(parser) do
+		parser.shift(state_recipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dkw_equipment_32dstring_32d_39defficiency_39d(parser) do
+		parser.shift(state_recipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dpotential_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dpotential_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dcolour_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dcolour_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dquantity_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32d_39dquantity_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dflocculation_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dflocculation_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dattenuation_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dfermentables_32dhops_32dkw_yeast_32dstring_32d_39dattenuation_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dalpha_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dalpha_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dquantity_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dquantity_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtime_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtime_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtype_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39dtype_39d_32d_39d_58d_39d)
+	end
+	redef fun action_srecipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39duse_39d(parser) do
+		parser.shift(state_recipe_32dequipment_32dfermentables_32dkw_hops_32dkw_hop_32dstring_32d_39duse_39d_32d_39d_58d_39d)
+	end
+	redef fun node_name do return "\':\'"
 end
 class N_39dmash_temp_39d
 	super NToken
@@ -987,9 +1004,7 @@ redef class LRGoto
 	private fun goto_skw_recipe_32dstring(parser: Parser) do abort
 	private fun goto_srecipe_32dequipment_32dkw_fermentables(parser: Parser) do abort
 	private fun goto_srecipe_32dkw_equipment_32dstring(parser: Parser) do abort
-	private fun goto_skw_recipe_32dstring_32drecipe_body_43d(parser: Parser) do abort
 	private fun goto_srecipe_32dequipment_32dfermentables_32dkw_hops(parser: Parser) do abort
-	private fun goto_srecipe_32dkw_equipment_32dstring_32dequipment_body_43d(parser: Parser) do abort
 	private fun goto_srecipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring(parser: Parser) do abort
 	private fun goto_srecipe_32dequipment_32dkw_fermentables_32dkw_adjunct_32dstring(parser: Parser) do abort
 	private fun goto_srecipe_32dequipment_32dkw_fermentables_32dkw_sugar_32dstring(parser: Parser) do abort
@@ -1001,21 +1016,6 @@ class Goto_Nprog
 	super LRGoto
 	redef fun goto_sStart(parser) do
 		parser.push(state_prog)
-	end
-end
-class Goto_Nvolume
-	super LRGoto
-	redef fun goto_skw_recipe_32dstring(parser) do
-		parser.push(state_kw_recipe_32dstring_32dvolume)
-	end
-	redef fun goto_srecipe_32dkw_equipment_32dstring(parser) do
-		parser.push(state_recipe_32dkw_equipment_32dstring_32dvolume)
-	end
-	redef fun goto_skw_recipe_32dstring_32drecipe_body_43d(parser) do
-		parser.push(state_kw_recipe_32dstring_32dvolume)
-	end
-	redef fun goto_srecipe_32dkw_equipment_32dstring_32dequipment_body_43d(parser) do
-		parser.push(state_recipe_32dkw_equipment_32dstring_32dvolume)
 	end
 end
 class Goto_Nvolunit
@@ -1047,9 +1047,6 @@ class Goto_Nrecipe_body
 	redef fun goto_skw_recipe_32dstring(parser) do
 		parser.push(state_kw_recipe_32dstring_32drecipe_body)
 	end
-	redef fun goto_skw_recipe_32dstring_32drecipe_body_43d(parser) do
-		parser.push(state_kw_recipe_32dstring_32drecipe_body_43d_32drecipe_body)
-	end
 end
 class Goto_Nequipment
 	super LRGoto
@@ -1058,9 +1055,6 @@ class Goto_Nequipment_body
 	super LRGoto
 	redef fun goto_srecipe_32dkw_equipment_32dstring(parser) do
 		parser.push(state_recipe_32dkw_equipment_32dstring_32dequipment_body)
-	end
-	redef fun goto_srecipe_32dkw_equipment_32dstring_32dequipment_body_43d(parser) do
-		parser.push(state_recipe_32dkw_equipment_32dstring_32dequipment_body_43d_32dequipment_body)
 	end
 end
 class Goto_Nfermentables
@@ -1190,28 +1184,6 @@ class Nprog
 		abort
 	end
 end
-class Nvolume
-	super NProd
-	redef fun node_name do return "volume"
-	var n_0: N_39dvolume_39d
-	var n_1: N_39d_58d_39d
-	var n_number: Nnumber
-	var n_volume_unit: Nvolume_unit
-	init(n_0: N_39dvolume_39d, n_1: N_39d_58d_39d, n_number: Nnumber, n_volume_unit: Nvolume_unit) do
-		self.n_0 = n_0
-		self.n_1 = n_1
-		self.n_number = n_number
-		self.n_volume_unit = n_volume_unit
-	end
-	redef fun number_of_children do return 4
-	redef fun child(i) do
-		if i == 0 then return n_0
-		if i == 1 then return n_1
-		if i == 2 then return n_number
-		if i == 3 then return n_volume_unit
-		abort
-	end
-end
 class Nvolunit
 	super NProd
 	redef fun node_name do return "volunit"
@@ -1334,13 +1306,19 @@ end
 class Nrecipe_body_volume
 	super Nrecipe_body
 	redef fun node_name do return "recipe_body_volume"
-	var n_volume: Nvolume
-	init(n_volume: Nvolume) do
-		self.n_volume = n_volume
+	var n_0: N_39dvolume_39d
+	var n_1: N_39d_58d_39d
+	var n_volunit: Nvolunit
+	init(n_0: N_39dvolume_39d, n_1: N_39d_58d_39d, n_volunit: Nvolunit) do
+		self.n_0 = n_0
+		self.n_1 = n_1
+		self.n_volunit = n_volunit
 	end
-	redef fun number_of_children do return 1
+	redef fun number_of_children do return 3
 	redef fun child(i) do
-		if i == 0 then return n_volume
+		if i == 0 then return n_0
+		if i == 1 then return n_1
+		if i == 2 then return n_volunit
 		abort
 	end
 end
@@ -1389,13 +1367,19 @@ end
 class Nequipment_body_volume
 	super Nequipment_body
 	redef fun node_name do return "equipment_body_volume"
-	var n_volume: Nvolume
-	init(n_volume: Nvolume) do
-		self.n_volume = n_volume
+	var n_0: N_39dvolume_39d
+	var n_1: N_39d_58d_39d
+	var n_volunit: Nvolunit
+	init(n_0: N_39dvolume_39d, n_1: N_39d_58d_39d, n_volunit: Nvolunit) do
+		self.n_0 = n_0
+		self.n_1 = n_1
+		self.n_volunit = n_volunit
 	end
-	redef fun number_of_children do return 1
+	redef fun number_of_children do return 3
 	redef fun child(i) do
-		if i == 0 then return n_volume
+		if i == 0 then return n_0
+		if i == 1 then return n_1
+		if i == 2 then return n_volunit
 		abort
 	end
 end
@@ -1872,7 +1856,7 @@ end
 private class LRStatekw_recipe_32dstring
 	super LRState
 	redef fun to_s do return "kw_recipe string"
-	redef fun error_msg do return "recipe_body+, recipe_body, volume"
+	redef fun error_msg do return "recipe_body+, recipe_body"
 	redef fun action(parser) do
 		parser.peek_token.action_skw_recipe_32dstring(parser)
 	end
@@ -1908,7 +1892,7 @@ end
 private class LRStaterecipe_32dkw_equipment_32dstring
 	super LRState
 	redef fun to_s do return "recipe kw_equipment string"
-	redef fun error_msg do return "equipment_body+, equipment_body, volume"
+	redef fun error_msg do return "equipment_body+, equipment_body"
 	redef fun action(parser) do
 		parser.peek_token.action_srecipe_32dkw_equipment_32dstring(parser)
 	end
@@ -1920,12 +1904,12 @@ end
 private class LRStatekw_recipe_32dstring_32drecipe_body_43d
 	super LRState
 	redef fun to_s do return "kw_recipe string recipe_body+"
-	redef fun error_msg do return "recipe_body, volume"
+	redef fun error_msg do return "recipe_body"
 	redef fun action(parser) do
 		parser.peek_token.action_skw_recipe_32dstring_32drecipe_body_43d(parser)
 	end
 	redef fun goto(parser, goto) do
-		goto.goto_skw_recipe_32dstring_32drecipe_body_43d(parser)
+		parser.push(state_kw_recipe_32dstring_32drecipe_body_43d_32drecipe_body)
 	end
 end
 # State kw_recipe string recipe_body
@@ -1940,20 +1924,6 @@ private class LRStatekw_recipe_32dstring_32drecipe_body
 		prod.children.add(n0)
 		parser.node_stack.push prod
 		parser.goto(goto_Nrecipe_body_43d)
-	end
-end
-# State kw_recipe string volume
-private class LRStatekw_recipe_32dstring_32dvolume
-	super LRState
-	redef fun to_s do return "kw_recipe string volume"
-	redef fun error_msg do return ""
-	redef fun action(parser) do
-		# REDUCE recipe_body::recipe_body_volume=volume
-		var n0 = parser.pop.as(Nvolume)
-		var p1 = new Nrecipe_body_volume(n0)
-		var prod = p1
-		parser.node_stack.push prod
-		parser.goto(goto_Nrecipe_body)
 	end
 end
 # State kw_recipe string 'volume'
@@ -2064,12 +2034,12 @@ end
 private class LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body_43d
 	super LRState
 	redef fun to_s do return "recipe kw_equipment string equipment_body+"
-	redef fun error_msg do return "equipment_body, volume"
+	redef fun error_msg do return "equipment_body"
 	redef fun action(parser) do
 		parser.peek_token.action_srecipe_32dkw_equipment_32dstring_32dequipment_body_43d(parser)
 	end
 	redef fun goto(parser, goto) do
-		goto.goto_srecipe_32dkw_equipment_32dstring_32dequipment_body_43d(parser)
+		parser.push(state_recipe_32dkw_equipment_32dstring_32dequipment_body_43d_32dequipment_body)
 	end
 end
 # State recipe kw_equipment string equipment_body
@@ -2086,18 +2056,13 @@ private class LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body
 		parser.goto(goto_Nequipment_body_43d)
 	end
 end
-# State recipe kw_equipment string volume
-private class LRStaterecipe_32dkw_equipment_32dstring_32dvolume
+# State recipe kw_equipment string 'volume'
+private class LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d
 	super LRState
-	redef fun to_s do return "recipe kw_equipment string volume"
-	redef fun error_msg do return ""
+	redef fun to_s do return "recipe kw_equipment string \'volume\'"
+	redef fun error_msg do return "\':\'"
 	redef fun action(parser) do
-		# REDUCE equipment_body::equipment_body_volume=volume
-		var n0 = parser.pop.as(Nvolume)
-		var p1 = new Nequipment_body_volume(n0)
-		var prod = p1
-		parser.node_stack.push prod
-		parser.goto(goto_Nequipment_body)
+		parser.peek_token.action_srecipe_32dkw_equipment_32dstring_32d_39dvolume_39d(parser)
 	end
 end
 # State recipe kw_equipment string 'efficiency'
@@ -2128,9 +2093,12 @@ end
 private class LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d
 	super LRState
 	redef fun to_s do return "kw_recipe string \'volume\' \':\'"
-	redef fun error_msg do return "number"
+	redef fun error_msg do return "volunit"
 	redef fun action(parser) do
 		parser.peek_token.action_skw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d(parser)
+	end
+	redef fun goto(parser, goto) do
+		parser.push(state_kw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit)
 	end
 end
 # State kw_recipe string 'mash_temp' ':'
@@ -2285,6 +2253,18 @@ private class LRStaterecipe_32dkw_equipment_32dstring_32dequipment_body_43d_32de
 		parser.goto(goto_Nequipment_body_43d)
 	end
 end
+# State recipe kw_equipment string 'volume' ':'
+private class LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d
+	super LRState
+	redef fun to_s do return "recipe kw_equipment string \'volume\' \':\'"
+	redef fun error_msg do return "volunit"
+	redef fun action(parser) do
+		parser.peek_token.action_srecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d(parser)
+	end
+	redef fun goto(parser, goto) do
+		parser.push(state_recipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit)
+	end
+end
 # State recipe kw_equipment string 'efficiency' ':'
 private class LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d
 	super LRState
@@ -2292,6 +2272,22 @@ private class LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_
 	redef fun error_msg do return "number"
 	redef fun action(parser) do
 		parser.peek_token.action_srecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d(parser)
+	end
+end
+# State kw_recipe string 'volume' ':' volunit
+private class LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit
+	super LRState
+	redef fun to_s do return "kw_recipe string \'volume\' \':\' volunit"
+	redef fun error_msg do return ""
+	redef fun action(parser) do
+		# REDUCE recipe_body::recipe_body_volume='volume' ':' volunit
+		var n2 = parser.pop.as(Nvolunit)
+		var n1 = parser.pop.as(N_39d_58d_39d)
+		var n0 = parser.pop.as(N_39dvolume_39d)
+		var p1 = new Nrecipe_body_volume(n0, n1, n2)
+		var prod = p1
+		parser.node_stack.push prod
+		parser.goto(goto_Nrecipe_body)
 	end
 end
 # State kw_recipe string 'volume' ':' number
@@ -2456,6 +2452,22 @@ private class LRStaterecipe_32dequipment_32dkw_fermentables_32dkw_extract_32dstr
 		parser.push(state_recipe_32dequipment_32dkw_fermentables_32dkw_grain_32dstring_32dcompound_body_43d_32dcompound_body)
 	end
 end
+# State recipe kw_equipment string 'volume' ':' volunit
+private class LRStaterecipe_32dkw_equipment_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dvolunit
+	super LRState
+	redef fun to_s do return "recipe kw_equipment string \'volume\' \':\' volunit"
+	redef fun error_msg do return ""
+	redef fun action(parser) do
+		# REDUCE equipment_body::equipment_body_volume='volume' ':' volunit
+		var n2 = parser.pop.as(Nvolunit)
+		var n1 = parser.pop.as(N_39d_58d_39d)
+		var n0 = parser.pop.as(N_39dvolume_39d)
+		var p1 = new Nequipment_body_volume(n0, n1, n2)
+		var prod = p1
+		parser.node_stack.push prod
+		parser.goto(goto_Nequipment_body)
+	end
+end
 # State recipe kw_equipment string 'efficiency' ':' number
 private class LRStaterecipe_32dkw_equipment_32dstring_32d_39defficiency_39d_32d_39d_58d_39d_32dnumber
 	super LRState
@@ -2478,15 +2490,13 @@ private class LRStatekw_recipe_32dstring_32d_39dvolume_39d_32d_39d_58d_39d_32dnu
 	redef fun to_s do return "kw_recipe string \'volume\' \':\' number volume_unit"
 	redef fun error_msg do return ""
 	redef fun action(parser) do
-		# REDUCE volume::volume='volume' ':' number volume_unit
-		var n3 = parser.pop.as(Nvolume_unit)
-		var n2 = parser.pop.as(Nnumber)
-		var n1 = parser.pop.as(N_39d_58d_39d)
-		var n0 = parser.pop.as(N_39dvolume_39d)
-		var p1 = new Nvolume(n0, n1, n2, n3)
+		# REDUCE volunit::volunit=number volume_unit
+		var n1 = parser.pop.as(Nvolume_unit)
+		var n0 = parser.pop.as(Nnumber)
+		var p1 = new Nvolunit(n0, n1)
 		var prod = p1
 		parser.node_stack.push prod
-		parser.goto(goto_Nvolume)
+		parser.goto(goto_Nvolunit)
 	end
 end
 # State kw_recipe string 'mash_temp' ':' number temp_unit
