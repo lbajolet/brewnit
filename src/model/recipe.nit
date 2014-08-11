@@ -55,7 +55,7 @@ class Recipe
 				gu_total += i.gu
 			end
 		end
-		return new GU(gu_total / target_volume.to_us_gal.value)
+		return new GU(gu_total / fermenter_volume.to_us_gal.value)
 	end
 
 	fun estimated_fg: Gravity
@@ -75,6 +75,8 @@ class Recipe
 
 	# Based on the mash profile, computes the gravity of the wort during boil.
 	fun estimated_boil_gravity: Gravity do return new GU((estimated_og.to_gu.value * target_volume.to_us_gal.value) / runoff_volume.to_us_gal.value)
+
+	fun fermenter_volume: Volume do return new Liter(hop_loss.to_l.value + target_volume.to_l.value)
 
 	# Based on the hops described in the recipe, computes the total loss of wort due to hop-use.
 	#
@@ -196,7 +198,7 @@ class Recipe
 		end
 		for i in hops do
 			if i isa Boil then
-				final_ibu += (i.quantity.to_oz.value * i.use_factor(boil_grav) * (i.hop.alpha_acid / 100.0) * 7.489) / (target_volume.to_us_gal.value * correction_factor)
+				final_ibu += (i.quantity.to_oz.value * i.use_factor(boil_grav) * (i.hop.alpha_acid / 100.0) * 7.489) / (fermenter_volume.to_us_gal.value * correction_factor)
 			end
 		end
 		return final_ibu * 1000.0
@@ -207,7 +209,7 @@ class Recipe
 	do
 		var mcu = 0.0
 		for i in malts do
-			mcu += (i.quantity.to_lbs.value * i.fermentable.colour.to_srm.value) / target_volume.to_us_gal.value
+			mcu += (i.quantity.to_lbs.value * i.fermentable.colour.to_srm.value) / fermenter_volume.to_us_gal.value
 		end
 		return new SRM(1.4922 * mcu.pow(0.6859))
 	end
