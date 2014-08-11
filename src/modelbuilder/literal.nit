@@ -15,7 +15,7 @@ end
 redef class Nstring
 	var value: String
 
-	redef fun accept_literal_visitor(v) do value = text.substring(1, text.length - 1)
+	redef fun accept_literal_visitor(v) do value = text.substring(1, text.length - 2)
 end
 
 redef class Nnumber
