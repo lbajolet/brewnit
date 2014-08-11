@@ -1,4 +1,4 @@
-import recipe
+import model
 import template
 
 redef class Recipe
