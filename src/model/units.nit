@@ -4,6 +4,10 @@ module units
 # Any kind of unit, its value should be set at construction time
 abstract class Unit
 
+	type SELF: Unit
+
+	fun +(o: SELF): SELF is abstract
+
 	fun unit: String is abstract
 
 	redef fun to_s do return "{value.to_s} {unit}"
@@ -22,6 +26,8 @@ end
 # Abstract colour value, expressed in either SRM or EBC
 abstract class Colour
 	super Unit
+
+	redef type SELF: Colour
 
 	# Converts the value to SRM units
 	fun to_srm: SRM is abstract
@@ -52,6 +58,8 @@ end
 class SRM
 	super Colour
 
+	redef fun +(o) do return new SRM(value + o.to_srm.value)
+
 	redef fun unit do return once "SRM"
 
 	redef fun to_srm do return self
@@ -63,6 +71,8 @@ end
 class EBC
 	super Colour
 
+	redef fun +(o) do return new EBC(value + o.to_ebc.value)
+
 	redef fun unit do return once "EBC"
 
 	redef fun to_srm do return new SRM(value * .508)
@@ -73,6 +83,8 @@ end
 # Any kind of weight units (g, oz, etc...)
 abstract class Weight
 	super Unit
+
+	redef type SELF: Weight
 
 	# Converts the weight into ounces
 	fun to_oz: Ounce is abstract
@@ -108,6 +120,8 @@ end
 class Ounce
 	super Weight
 
+	redef fun +(o) do return new Ounce(value + o.to_oz.value)
+
 	redef fun unit do return once "oz"
 
 	redef fun to_g do return new Gram(value * 28.3495231)
@@ -120,6 +134,8 @@ end
 # Weight unit, used in US/CAN/UK regions eventually
 class Pound
 	super Weight
+
+	redef fun +(o) do return new Pound(value + o.to_lbs.value)
 
 	redef fun unit do return once "lbs"
 
@@ -134,6 +150,8 @@ end
 class Gram
 	super Weight
 
+	redef fun +(o) do return new Gram(value + o.to_g.value)
+
 	redef fun unit do return once "g"
 
 	redef fun to_oz do return new Ounce(value / 28.3495231)
@@ -146,6 +164,8 @@ end
 # Volume units (e.g. Gallon or Liter)
 abstract class Volume
 	super Unit
+
+	redef type SELF: Volume
 
 	fun to_us_gal: USGallon is abstract
 
@@ -181,6 +201,8 @@ end
 class USGallon
 	super Volume
 
+	redef fun +(o) do return new USGallon(value + o.to_us_gal.value)
+
 	redef fun unit do return once "gal"
 
 	redef fun to_us_gal do return self
@@ -195,6 +217,8 @@ end
 # Volume unit, is eventually used in the UK or any Commonwealth country
 class ImperialGallon
 	super Volume
+
+	redef fun +(o) do return new ImperialGallon(value + o.to_imp_gal.value)
 
 	redef fun unit do return once "Imperial gal"
 
@@ -211,6 +235,8 @@ end
 class Liter
 	super Volume
 
+	redef fun +(o) do return new Liter(value + o.to_l.value)
+
 	redef fun unit do return once "L"
 
 	redef fun to_l do return self
@@ -224,6 +250,8 @@ end
 
 class USQuart
 	super Volume
+
+	redef fun +(o) do return new USQuart(value + o.to_us_qt.value)
 
 	redef fun unit do return once "qt"
 
@@ -239,6 +267,8 @@ end
 # All kinds of gravity units (e.g. SG, GU, Plato...)
 abstract class Gravity
 	super Unit
+
+	redef type SELF: Gravity
 
 	# Converts a gravity unit to its SG representation
 	fun to_sg: SG is abstract
@@ -274,6 +304,8 @@ end
 class SG
 	super Gravity
 
+	redef fun +(o) do return new SG(value + o.to_sg.value)
+
 	redef fun unit do return once "SG"
 
 	redef fun to_sg do return self
@@ -285,6 +317,8 @@ end
 
 class GU
 	super Gravity
+
+	redef fun +(o) do return new GU(value + o.to_gu.value)
 
 	redef fun unit do return once "GU"
 
@@ -298,6 +332,8 @@ end
 class Plato
 	super Gravity
 
+	redef fun +(o) do return new Plato(value + o.to_plato.value)
+
 	redef fun unit do return once "°P"
 
 	redef fun to_sg do return new SG(1.0 + value / (258.6 - .88 * value))
@@ -309,6 +345,8 @@ end
 
 abstract class Temperature
 	super Unit
+
+	redef type SELF: Temperature
 
 	fun to_f: Fahrenheit is abstract
 
@@ -336,6 +374,8 @@ end
 class Fahrenheit
 	super Temperature
 
+	redef fun +(o) do return new Fahrenheit(value + o.to_f.value)
+
 	redef fun unit do return once "°F"
 
 	redef fun to_f do return self
@@ -346,6 +386,8 @@ end
 class Celsius
 	super Temperature
 
+	redef fun +(o) do return new Celsius(value + o.to_c.value)
+
 	redef fun unit do return once "°C"
 
 	redef fun to_c do return self
@@ -355,6 +397,8 @@ end
 
 abstract class Time
 	super Unit
+
+	redef type SELF: Time
 
 	fun to_min: Minute is abstract
 
@@ -393,6 +437,8 @@ end
 class Minute
 	super Time
 
+	redef fun +(o) do return new Minute(value + o.to_min.value)
+
 	redef fun unit do return "min"
 
 	redef fun to_h do return new Hour(value / 60.0)
@@ -408,6 +454,8 @@ end
 
 class Hour
 	super Time
+
+	redef fun +(o) do return new Hour(value + o.to_h.value)
 
 	redef fun unit do return "h"
 
@@ -425,6 +473,8 @@ end
 class Second
 	super Time
 
+	redef fun +(o) do return new Second(value + o.to_sec.value)
+
 	redef fun unit do return "s"
 
 	redef fun to_h do return new Hour(value / 3600.0)
@@ -441,6 +491,8 @@ end
 class Day
 	super Time
 
+	redef fun +(o) do return new Day(value + o.to_days.value)
+
 	redef fun unit do return "days"
 
 	redef fun to_h do return new Hour(value * 24.0)
@@ -456,6 +508,8 @@ end
 
 class Week
 	super Time
+
+	redef fun +(o) do return new Week(value + o.to_weeks.value)
 
 	redef fun unit do return "weeks"
 

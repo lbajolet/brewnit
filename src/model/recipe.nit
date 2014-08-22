@@ -66,17 +66,17 @@ class Recipe
 
 	fun grain_weight: Weight
 	do
-		var total_grain_weight = 0.0
+		var total_grain_weight: Weight = new Pound(0.0)
 		for i in malts do
-			if i.fermentable isa Grain then total_grain_weight += i.quantity.to_lbs.value
+			if i.fermentable isa Grain then total_grain_weight += i.quantity
 		end
-		return new Pound(total_grain_weight)
+		return total_grain_weight
 	end
 
 	# Based on the mash profile, computes the gravity of the wort during boil.
 	fun estimated_boil_gravity: Gravity do return new GU((estimated_og.to_gu.value * target_volume.to_us_gal.value) / runoff_volume.to_us_gal.value)
 
-	fun fermenter_volume: Volume do return new Liter(hop_loss.to_l.value + target_volume.to_l.value)
+	fun fermenter_volume: Volume do return hop_loss + target_volume
 
 	# Based on the hops described in the recipe, computes the total loss of wort due to hop-use.
 	#
