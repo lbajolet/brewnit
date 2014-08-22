@@ -61,6 +61,7 @@ class Boil
 	redef fun use_factor(grav: Gravity): Float do
 		var gravity = (grav.to_sg.value * 1000.0).to_i
 		var rt = time.to_min.value.to_i - (time.to_min.value.to_i % 5)
+		rt = time_to_index(rt)
 		if gravity < 1040 then return use_1030(rt)
 		if gravity < 1050 then return use_1040(rt)
 		if gravity < 1060 then return use_1050(rt)
@@ -73,8 +74,7 @@ class Boil
 		return use_1120(rt)
 	end
 
-	# Hop use formulas below, at x < 1040 boil gravity
-	fun use_1030(time: Int): Float `{
+	fun time_to_index(time: Int): Int `{
 		int index;
 		switch(time){
 			case 0: index = 0; break;
@@ -96,7 +96,13 @@ class Boil
 			case 100: index = 16; break;
 			case 110: index = 17; break;
 			case 120: index = 18; break;
+			default: index = 0; break;
 		}
+		return index;
+	`}
+
+	# Hop use formulas below, at x < 1040 boil gravity
+	fun use_1030(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .055},
@@ -122,29 +128,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1040 >= x < 1050 boil gravity
-	fun use_1040(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1040(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .050},
@@ -170,29 +154,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1050 >= x < 1060 boil gravity
-	fun use_1050(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1050(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .046},
@@ -218,29 +180,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1060 >= x < 1070 boil gravity
-	fun use_1060(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1060(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .042},
@@ -266,29 +206,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1070 >= x < 1080 boil gravity
-	fun use_1070(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1070(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .038},
@@ -314,29 +232,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1080 >= x < 1090 boil gravity
-	fun use_1080(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1080(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .035},
@@ -362,29 +258,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1090 >= x < 1100 boil gravity
-	fun use_1090(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1090(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .032},
@@ -410,29 +284,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1100 >= x < 1110 boil gravity
-	fun use_1100(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1100(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .029},
@@ -458,29 +310,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at 1110 >= x < 1120 boil gravity
-	fun use_1110(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1110(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .027},
@@ -506,29 +336,7 @@ class Boil
 	`}
 
 	# Hop use formulas below, at x >= 1120 boil gravity
-	fun use_1120(time: Int): Float `{
-		int index;
-		switch(time){
-			case 0: index = 0; break;
-			case 5: index = 1; break;
-			case 10: index = 2; break;
-			case 15: index = 3; break;
-			case 20: index = 4; break;
-			case 25: index = 5; break;
-			case 30: index = 6; break;
-			case 35: index = 7; break;
-			case 40: index = 8; break;
-			case 45: index = 9; break;
-			case 50: index = 10; break;
-			case 55: index = 11; break;
-			case 60: index = 12; break;
-			case 70: index = 13; break;
-			case 80: index = 14; break;
-			case 90: index = 15; break;
-			case 100: index = 16; break;
-			case 110: index = 17; break;
-			case 120: index = 18; break;
-		}
+	fun use_1120(index: Int): Float `{
 		static hop_use hop[] = {
 			{0, 0},
 			{5, .025},
