@@ -1,0 +1,49 @@
+RECIPE "CitrIPA"
+	volume : 22 L
+	mash_temp : 65.7 C
+EQUIPMENT "Home"
+	volume : 30 L
+	efficiency : 65
+FERMENTABLES
+	GRAIN "Two-Row"
+		potential : 1.038 SG
+		colour : 2 SRM
+		quantity : 4000 g
+	GRAIN "Crystal 40"
+		potential: 1.034 SG
+		colour: 40 SRM
+		quantity: 1000 g
+	GRAIN "White Wheat"
+		potential : 1.036 SG
+		colour : 2 SRM
+		quantity : 250 g
+	GRAIN "Flaked Barley"
+		potential : 1.032 SG
+		colour : 1.7 SRM
+		quantity : 250 g
+	ADJUNCT "Lime Peel"
+		potential : 1.000 SG
+		colour : 0 SRM
+		quantity : 1 oz
+HOPS
+	HOP "Cascade"
+		alpha : 7.7
+		quantity : 1 oz
+		time : 60 min
+		type : Leaf
+		use : Boil
+	HOP "Cascade"
+		alpha : 7.7
+		quantity : 1 oz
+		time : 25 min
+		type : Leaf
+		use : Boil
+	HOP "Sorachi Ace"
+		alpha : 12.5
+		quantity : 3 oz
+		time : 1 week
+		type : Leaf
+		use : DryHop
+YEAST "S-05"
+	flocculation : medium
+	attenuation : 77

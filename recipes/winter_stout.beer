@@ -1,0 +1,41 @@
+RECIPE "Winter Stout"
+	volume: 22 L
+	mash_temp: 69.0 C
+EQUIPMENT "Home"
+	efficiency: 65
+	volume: 30 L
+FERMENTABLES
+	GRAIN "Two Row"
+		potential: 1.037 SG
+		colour: 3.9 EBC
+		quantity: 5600 g
+	EXTRACT "Light liquid extract"
+		potential: 1.034 SG
+		colour: 3.9 EBC
+		quantity: 1500 g
+	GRAIN "Crystal 120"
+		potential: 1.034 SG
+		colour: 120 SRM
+		quantity: 350 g
+	GRAIN "Roasted Barley"
+		potential: 1.029 SG
+		colour: 400 SRM
+		quantity: 250 g
+	GRAIN "Chocolate Malt"
+		potential: 1.030 SG
+		colour: 300 SRM
+		quantity: 900 g
+	ADJUNCT "Star Anise"
+		potential: 1.000 SG
+		colour: 0 SRM
+		quantity: 30 g
+HOPS
+	HOP "Simcoe"
+		alpha: 15.4
+		quantity: 50 g
+		time: 60 min
+		type: Leaf
+		use: Boil
+YEAST "WLP-013"
+	flocculation: medium
+	attenuation: 75
