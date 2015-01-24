@@ -4,9 +4,9 @@ module units
 # Any kind of unit, its value should be set at construction time
 abstract class Unit
 
-	type SELF: Unit
+	type SELFUNIT: Unit
 
-	fun +(o: SELF): SELF is abstract
+	fun +(o: SELFUNIT): SELF is abstract
 
 	fun unit: String is abstract
 
@@ -18,16 +18,16 @@ end
 
 abstract class UnitFactory
 
-	type SELF: Unit
+	type SELFUNIT: Unit
 
-	fun build_unit(val: Float, s: String): SELF is abstract
+	fun build_unit(val: Float, s: String): SELFUNIT is abstract
 end
 
 # Abstract colour value, expressed in either SRM or EBC
 abstract class Colour
 	super Unit
 
-	redef type SELF: Colour
+	redef type SELFUNIT: Colour
 
 	# Converts the value to SRM units
 	fun to_srm: SRM is abstract
@@ -39,7 +39,7 @@ end
 class ColourFactory
 	super UnitFactory
 
-	redef type SELF: Colour
+	redef type SELFUNIT: Colour
 
 	redef fun build_unit(val, s) do
 		if s == "SRM" then
@@ -84,7 +84,7 @@ end
 abstract class Weight
 	super Unit
 
-	redef type SELF: Weight
+	redef type SELFUNIT: Weight
 
 	# Converts the weight into ounces
 	fun to_oz: Ounce is abstract
@@ -99,7 +99,7 @@ end
 class WeightFactory
 	super UnitFactory
 
-	redef type SELF: Weight
+	redef type SELFUNIT: Weight
 
 	redef fun build_unit(val, s) do
 		if s == "g" then
@@ -165,7 +165,7 @@ end
 abstract class Volume
 	super Unit
 
-	redef type SELF: Volume
+	redef type SELFUNIT: Volume
 
 	fun to_us_gal: USGallon is abstract
 
@@ -179,7 +179,7 @@ end
 class VolumeFactory
 	super UnitFactory
 
-	redef type SELF: Volume
+	redef type SELFUNIT: Volume
 
 	redef fun build_unit(val, s) do
 		if s == "gal" then
@@ -268,7 +268,7 @@ end
 abstract class Gravity
 	super Unit
 
-	redef type SELF: Gravity
+	redef type SELFUNIT: Gravity
 
 	# Converts a gravity unit to its SG representation
 	fun to_sg: SG is abstract
@@ -283,7 +283,7 @@ end
 class GravityFactory
 	super UnitFactory
 
-	redef type SELF: Gravity
+	redef type SELFUNIT: Gravity
 
 	redef fun build_unit(val, s)
 	do
@@ -346,7 +346,7 @@ end
 abstract class Temperature
 	super Unit
 
-	redef type SELF: Temperature
+	redef type SELFUNIT: Temperature
 
 	fun to_f: Fahrenheit is abstract
 
@@ -356,7 +356,7 @@ end
 class TemperatureFactory
 	super UnitFactory
 
-	redef type SELF: Temperature
+	redef type SELFUNIT: Temperature
 
 	redef fun build_unit(val, s) do
 		if s == "F" then
@@ -398,7 +398,7 @@ end
 abstract class Time
 	super Unit
 
-	redef type SELF: Time
+	redef type SELFUNIT: Time
 
 	fun to_min: Minute is abstract
 
@@ -414,7 +414,7 @@ end
 class TimeFactory
 	super UnitFactory
 
-	redef type SELF: Time
+	redef type SELFUNIT: Time
 
 	redef fun build_unit(val, s) do
 		if s == "min" then
