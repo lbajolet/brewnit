@@ -46,13 +46,13 @@ timunit = number time_unit;
 
 recipe = kw_recipe string recipe_body+;
 recipe_body =
-	{volume:} 'volume' ':' volunit |
-	{mash_temp:} 'mash_temp' ':' tmpunit ;
+	{volume:} 'volume' ':'? volunit |
+	{mash_temp:} 'mash_temp' ':'? tmpunit ;
 
 equipment = kw_equipment string equipment_body+ ;
 equipment_body =
-	{volume:} 'volume' ':' volunit |
-	{efficiency:} 'efficiency' ':' number ;
+	{volume:} 'volume' ':'? volunit |
+	{efficiency:} 'efficiency' ':'? number ;
 
 fermentables = kw_fermentables compound+ ;
 compound =
@@ -62,20 +62,20 @@ compound =
 	{extract:} kw_extract string compound_body+ ;
 
 compound_body =
-	{potential:} 'potential' ':' grvunit |
-	{colour:} 'colour' ':' colunit |
-	{quantity:} 'quantity' ':' weiunit;
+	{potential:} 'potential' ':'? grvunit |
+	{colour:} 'colour' ':'? colunit |
+	{quantity:} 'quantity' ':'? weiunit;
 
 hops = kw_hops hop_profile+;
 hop_profile = kw_hop string hop_profile_body+;
 hop_profile_body =
-	{aa:} 'alpha' ':' number |
-	{quantity:} 'quantity' ':' weiunit |
-	{time:} 'time' ':' timunit |
-	{type:} 'type' ':' hop_type |
-	{use:}'use' ':' hop_use;
+	{aa:} 'alpha' ':'? number |
+	{quantity:} 'quantity' ':'? weiunit |
+	{time:} 'time' ':'? timunit |
+	{type:} 'type' ':'? hop_type |
+	{use:}'use' ':'? hop_use;
 
 yeast = kw_yeast string yeast_body+;
 yeast_body =
-	{floc:}'flocculation' ':' flocculation_type |
-	{att:}'attenuation' ':' number;
+	{floc:}'flocculation' ':'? flocculation_type |
+	{att:}'attenuation' ':'? number;
