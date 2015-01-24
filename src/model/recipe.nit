@@ -189,6 +189,8 @@ class Recipe
 	fun ibu: Float
 	do
 		var final_ibu = 0.0
+		# Mathematical Constant e, Euler's number
+		var e = 2.71828182845904523536028747135266249775724709369995
 		var boil_grav = new SG((estimated_boil_gravity.to_sg.value + estimated_og.to_sg.value) / 2.0)
 		var correction_factor: Float
 		if boil_grav.to_sg.value > 1.050 then
@@ -196,12 +198,16 @@ class Recipe
 		else
 			correction_factor = 1.0
 		end
+		var bigness_factor = 1.65 * 0.000125.pow(boil_grav.to_sg.value - 1.0)
 		for i in hops do
 			if i isa Boil then
-				final_ibu += (i.quantity.to_oz.value * i.use_factor(boil_grav) * (i.hop.alpha_acid / 100.0) * 7.489) / (fermenter_volume.to_us_gal.value * correction_factor)
+				var boil_time_factor = (1.0 - e.pow(-0.04 * i.time.to_min.value)) / 4.15
+				var alpha_utilization = bigness_factor * boil_time_factor
+				var mgl_added_alpha = ((i.hop.alpha_acid/100.0) * i.quantity.to_g.value * 1000.0) / target_volume.to_l.value
+				final_ibu += mgl_added_alpha * alpha_utilization
 			end
 		end
-		return final_ibu * 1000.0
+		return final_ibu
 	end
 
 	# Computes the colour of the final product
