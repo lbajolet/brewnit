@@ -32,9 +32,7 @@ end
 class RecipeFinalizer
 	super Visitor
 
-	var recipe: Recipe
-
-	init do end
+	var recipe: Recipe is noinit
 
 	redef fun visit(n) do n.accept_finalizer(self)
 
