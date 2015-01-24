@@ -1,0 +1,71 @@
+RECIPE "Siam"
+	volume : 22 L
+	mash_temp : 67 C
+EQUIPMENT "Home"
+	volume : 30 L
+	efficiency : 65
+FERMENTABLES
+	GRAIN "Two-Row"
+		potential : 1.038 SG
+		colour : 2 SRM
+		quantity : 4500 g
+	GRAIN "Crystal 40"
+		potential: 1.034 SG
+		colour: 40 SRM
+		quantity: 500 g
+	GRAIN "Carapils"
+		potential: 1.033 SG
+		colour: 3 SRM
+		quantity: 600 g
+	ADJUNCT "Lime Peel"
+		potential : 1.000 SG
+		colour : 0 SRM
+		quantity : 5 g
+	ADJUNCT "Lemongrass"
+		potential: 1.000 SG
+		colour: 0 SRM
+		quantity : 10 g
+	ADJUNCT "White Tea"
+		potential: 1.000 SG
+		colour: 0 SRM
+		quantity: 100 g
+HOPS
+	HOP "Centennial"
+		alpha: 10.7
+		quantity: 10 g
+		time: 60 min
+		type: Leaf
+		use: Boil
+	HOP "Citra"
+		alpha: 13.7
+		quantity: 10 g
+		time: 60 min
+		type: Leaf
+		use: Boil
+	HOP "Centennial"
+		alpha: 10.7
+		quantity: 15 g
+		time: 10 min
+		type: Leaf
+		use: Boil
+	HOP "Citra"
+		alpha: 13.7
+		quantity: 15 g
+		time: 10 min
+		type: Leaf
+		use: Boil
+	HOP "Centennial"
+		alpha: 10.7
+		quantity: 25 g
+		time: 1 week
+		type: Leaf
+		use: DryHop
+	HOP "Citra"
+		alpha: 13.7
+		quantity: 25 g
+		time: 1 week
+		type: Leaf
+		use: DryHop
+YEAST "S-04"
+	flocculation : medium
+	attenuation : 77
