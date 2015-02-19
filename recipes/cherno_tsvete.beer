@@ -1,0 +1,65 @@
+RECIPE "Cherno Tsvete"
+	volume: 22 L
+	mash_temp: 67.6 C
+EQUIPMENT "Home"
+	efficiency: 65
+	volume: 30 L
+FERMENTABLES
+	GRAIN "Pearl"
+		potential 	1.038 SG
+		colour 		2.1 EBC
+		quantity 	3500 g
+	GRAIN "Maris Otter"
+		potential	1.038 SG
+		colour		4 SRM
+		quantity	2000 g
+	GRAIN "Munich"
+		potential	1.035 SG
+		colour		8.3 SRM
+		quantity	500 g
+	GRAIN "Melanoidin"
+		potential 	1.034 SG
+		colour		40 SRM
+		quantity 	500 g
+	GRAIN "Black Malt"
+		potential 	1.025 SG
+		colour 		400 SRM
+		quantity	500 g
+	SUGAR "Corn Syrup"
+		potential	1.036 SG
+		colour		0 SRM
+		quantity	250 g
+HOPS
+	HOP "Northdown"
+		alpha: 	8.6
+		quantity: 50 g
+		time: 	90 min
+		type: 	Leaf
+		use: 	Boil
+	HOP "Northdown"
+		alpha: 	8.6
+		quantity: 30 g
+		time: 	30 min
+		type: 	Leaf
+		use: 	Boil
+	HOP "Northdown"
+		alpha	8.6
+		quantity 30 g
+		time 	5 min
+		type 	Leaf
+		use 	Boil
+	HOP "Northdown"
+		alpha	8.6
+		quantity 30 g
+		time	0 min
+		type	Leaf
+		use	Boil
+	HOP "Northdown"
+		alpha	8.6
+		quantity 100 g
+		time	1 week
+		type	Leaf
+		use	DryHop
+YEAST "Safale S-05"
+	flocculation: medium
+	attenuation: 78
