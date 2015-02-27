@@ -1,0 +1,45 @@
+RECIPE "Apis"
+	volume: 22 L
+	mash_temp: 69 C
+EQUIPMENT "Home"
+	efficiency: 65
+	volume: 30 L
+FERMENTABLES
+	GRAIN "Maris Otter"
+		potential	1.038 SG
+		colour		4 SRM
+		quantity	5000 g
+	GRAIN "Golden Promise"
+		potential	1.036 SG
+		colour		1.1 SRM
+		quantity	1500 g
+	GRAIN "Munich"
+		potential	1.035 SG
+		colour		8.3 SRM
+		quantity	1000 g
+	GRAIN "Crystal 80"
+		potential 	1.034 SG
+		colour		80 SRM
+		quantity 	500 g
+	GRAIN "Rauchmalz"
+		potential	1.037 SG
+		colour		9 SRM
+		quantity	100 g
+	EXTRACT	"Dark LME"
+		potential	1.038 SG
+		colour		4 SRM
+		quantity	1250 g
+	ADJUNCT	"Honey"
+		potential	1.035 SG
+		colour		1 SRM
+		quantity	500 g
+HOPS
+	HOP "Target"
+		alpha: 	9.9
+		quantity: 30 g
+		time: 	60 min
+		type: 	Leaf
+		use: 	Boil
+YEAST "WLP028 - Edinburgh Ale"
+	flocculation: medium
+	attenuation: 75
