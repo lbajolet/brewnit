@@ -1,0 +1,49 @@
+RECIPE "Moo"
+	volume: 22 L
+	mash_temp: 66 C
+EQUIPMENT "Home"
+	efficiency: 65
+	volume: 30 L
+FERMENTABLES
+	GRAIN "Pilsner"
+		potential 	1.038 SG
+		colour 		2 SRM
+		quantity 	5000 g
+	GRAIN "Wheat Malt"
+		potential	1.038 SG
+		colour		3 SRM
+		quantity	1000 g
+	ADJUNCT	"Orange Peel"
+		potential	1.0 SG
+		colour		0 SRM
+		quantity	15 g
+	ADJUNCT	"Black Pepper"
+		potential	1.0 SG
+		colour		0 SRM
+		quantity	10 g
+	ADJUNCT	"Coriander"
+		potential	1.0 SG
+		colour		0 SRM
+		quantity	10 g
+HOPS
+	HOP "Zeus"
+		alpha: 	16
+		quantity: 15 g
+		time: 	60 min
+		type: 	Pellet
+		use: 	Boil
+	HOP "Zeus"
+		alpha	16
+		quantity 15 g
+		time	30 min
+		type	Pellet
+		use	Boil
+	HOP "Zeus"
+		alpha	16
+		quantity 10 g
+		time	0 min
+		type	Pellet
+		use	Boil
+YEAST "Wyeast 3724 - Belgian Saison"
+	flocculation: low
+	attenuation: 80
