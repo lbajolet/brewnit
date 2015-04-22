@@ -16,7 +16,7 @@ redef class Parser_beer
 
 	fun parse_file: Node
 	do
-		var fs = new IFStream.open(file)
+		var fs = new FileReader.open(file)
 		var s = fs.read_all
 		var l = new Lexer_beer(s)
 		var tks = l.lex
