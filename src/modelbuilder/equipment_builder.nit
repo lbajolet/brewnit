@@ -1,13 +1,17 @@
 import literal
 import unit_build
 import model
+import console
 
 class EquipmentVisitor
 	super Visitor
 
 	var errors = new Array[String]
 
-	redef fun enter_visit(n) do n.accept_equipment_visitor(self)
+	redef fun enter_visit(n) do
+		n.accept_equipment_visitor(self)
+		for i in errors do print i.red
+	end
 end
 
 redef class Node

@@ -3,13 +3,17 @@ import nitcc_runtime
 import model
 import literal
 import unit_build
+import console
 
 class FermentablesVisitor
 	super Visitor
 
 	var errors = new Array[String]
 
-	redef fun visit(n) do n.accept_fermentables_visitor(self)
+	redef fun visit(n) do
+		n.accept_fermentables_visitor(self)
+		for i in errors do print i.red
+	end
 end
 
 redef class Node
