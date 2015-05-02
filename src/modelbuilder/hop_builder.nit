@@ -1,13 +1,17 @@
 import literal
 import unit_build
 import model
+import console
 
 class HopVisitor
 	super Visitor
 
 	var errors = new Array[String]
 
-	redef fun visit(n) do n.accept_hop_visitor(self)
+	redef fun visit(n) do
+		n.accept_hop_visitor(self)
+		for i in errors do print i.red
+	end
 end
 
 redef class Node

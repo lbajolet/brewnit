@@ -1,13 +1,17 @@
 import literal
 import unit_build
 import model
+import console
 
 class RecipeVisitor
 	super Visitor
 
 	var errors = new Array[String]
 
-	redef fun visit(n) do n.accept_recipe_visitor(self)
+	redef fun visit(n) do
+		n.accept_recipe_visitor(self)
+		for i in errors do print i.red
+	end
 end
 
 redef class Node
@@ -35,12 +39,14 @@ redef class Nrecipe
 		if vol == null then
 			err = true
 			v.errors.push "Error: Missing volume information at {position.as(not null)}"
+			return
 		end
 		if tmp == null then
 			err = true
 			v.errors.push "Error: Missing mash temperature information at {position.as(not null)}"
+			return
 		end
-		recipe = new Recipe(n_string.value, vol.as(not null), tmp.as(not null))
+		recipe = new Recipe(n_string.value, vol, tmp)
 	end
 
 end
