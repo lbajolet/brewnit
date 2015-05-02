@@ -1,0 +1,47 @@
+RECIPE "Natsu"
+	volume : 22 L
+	mash_temp : 65.7 C
+EQUIPMENT "Home"
+	volume : 30 L
+	efficiency : 65
+FERMENTABLES
+	GRAIN "Two-Row"
+		potential : 1.038 SG
+		colour : 2 SRM
+		quantity : 4500 g
+	GRAIN "Pilsener"
+		potential	1.038 SG
+		colour	1 SRM
+		quantity	1250 g
+	GRAIN "Crystal 40"
+		potential: 1.034 SG
+		colour: 40 SRM
+		quantity: 1000 g
+HOPS
+	HOP "Sorachi Ace"
+		alpha : 12.9
+		quantity : 20 g
+		time : 60 min
+		type : Leaf
+		use : Boil
+	HOP "Sorachi Ace"
+		alpha : 12.9
+		quantity : 15 g
+		time : 30 min
+		type : Leaf
+		use : Boil
+	HOP "Sorachi Ace"
+		alpha : 12.9
+		quantity : 15 g
+		time : 10 min
+		type : Leaf
+		use : Boil
+	HOP "Sorachi Ace"
+		alpha : 12.9
+		quantity : 100 g
+		time : 1 week
+		type : Leaf
+		use : DryHop
+YEAST "S-05"
+	flocculation : medium
+	attenuation : 77
