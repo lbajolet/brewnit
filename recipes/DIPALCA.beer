@@ -1,0 +1,105 @@
+RECIPE "DIPALCA"
+	volume: 18 L
+	mash_temp: 66.7 C
+EQUIPMENT "Home"
+	efficiency: 65
+	volume: 30 L
+FERMENTABLES
+	GRAIN "Two Row"
+		potential: 1.038 SG
+		colour: 3.9 EBC
+		quantity: 6500 g
+	GRAIN "Crystal 40"
+		potential: 1.034 SG
+		colour: 40 SRM
+		quantity: 250 g
+	GRAIN "Wheat Malt"
+		potential: 1.036 SG
+		colour 2 SRM
+		quantity 500 g
+	SUGAR "Sucrose"
+		potential: 1.046 SG
+		colour: 2 EBC
+		quantity: 500 g
+HOPS
+	HOP "Centennial"
+		alpha  9.6
+		quantity 1 oz
+		time 60 min
+		type Leaf
+		use Boil
+	HOP "Citra"
+		alpha  13.7
+		quantity 1 oz
+		time 45 min
+		type Leaf
+		use Boil
+	HOP "Centennial"
+		alpha  9.6
+		quantity 1 oz
+		time 10 min
+		type Leaf
+		use Boil
+	HOP "Amarillo"
+		alpha  7.1
+		quantity 1 oz
+		time 10 min
+		type Leaf
+		use Boil
+	HOP "Amarillo"
+		alpha  7.1
+		quantity 1 oz
+		time 10 min
+		type Leaf
+		use Boil
+	HOP "Citra"
+		alpha  13.7
+		quantity 1 oz
+		time 10 min
+		type Leaf
+		use Boil
+	HOP "Simcoe"
+		alpha: 15.4
+		quantity: 1 oz
+		time: 1 week
+		type: Pellet
+		use: DryHop
+	HOP "Simcoe"
+		alpha: 15.4
+		quantity: 1 oz
+		time: 1 week
+		type: Pellet
+		use: DryHop
+	HOP "Zythos"
+		alpha: 10.9
+		quantity: 1 oz
+		time: 1 week
+		type: Pellet
+		use: DryHop
+	HOP "Zythos"
+		alpha: 10.9
+		quantity: 1 oz
+		time: 1 week
+		type: Pellet
+		use: DryHop
+	HOP "7C"
+		alpha: 10.3
+		quantity: 1 oz
+		time: 1 week
+		type: Pellet
+		use: DryHop
+	HOP "7C"
+		alpha: 10.3
+		quantity: 1 oz
+		time: 1 week
+		type: Pellet
+		use: DryHop
+	HOP "Mandarina Bavaria"
+		alpha: 7.6
+		quantity: 50 g
+		time: 1 week
+		type: Pellet
+		use: DryHop
+YEAST "S-05"
+	flocculation medium
+	attenuation 78
