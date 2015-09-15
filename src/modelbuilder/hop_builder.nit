@@ -123,7 +123,7 @@ end
 
 redef class Nhop_profile_body_type
 
-	fun hop_type: Int is cached do
+	var hop_type: Int is lazy do
 		var type_str = n_hop_type.text
 		if type_str == "Leaf" then
 			return 0
@@ -136,7 +136,7 @@ end
 
 redef class Nhop_profile_body_use
 
-	fun use: Int is cached do
+	var use: Int is lazy do
 		var use_str = n_hop_use.text
 		if use_str == "Boil" then
 			return 0
