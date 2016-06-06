@@ -47,6 +47,4 @@ print "Efficiency = {wit.efficiency}%"
 print "Estimated FG = {wit.estimated_fg.to_sg} SG"
 print "Estimated ABV = {wit.estimated_abv} %"
 
-var out = new OFStream.open("MTL Wit.html")
-
-wit.write_to out
+wit.write_to_file "MTL Wit.html"

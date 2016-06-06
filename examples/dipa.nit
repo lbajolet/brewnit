@@ -63,6 +63,4 @@ print "Efficiency = {dipa.efficiency}%"
 print "Estimated ABV = {dipa.estimated_abv} %"
 print "Effective ABV = {dipa.effective_abv} %"
 
-var out = new OFStream.open("DIPA.html")
-
-dipa.write out
+dipa.write_to_file "DIPA.html"
