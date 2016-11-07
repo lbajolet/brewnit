@@ -18,6 +18,7 @@ class Fermentable
 	fun need_mash: Bool is abstract
 end
 
+# A fermentable used in a `Recipe`
 class FermentableProfile
 
 	# Type of Fermentable used
@@ -31,24 +32,28 @@ class FermentableProfile
 
 end
 
+# Grain to be used in a recipe
 class Grain
 	super Fermentable
 
 	redef fun need_mash do return true
 end
 
+# Adjunct to use in a recipe
 class Adjunct
 	super Fermentable
 
 	redef fun need_mash do return false
 end
 
+# Sugar to use in a recipe
 class Sugar
 	super Fermentable
 
 	redef fun need_mash do return false
 end
 
+# Extract to use in a recipe
 class Extract
 	super Fermentable
 

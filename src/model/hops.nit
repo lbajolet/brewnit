@@ -3,28 +3,20 @@ module hops
 
 import units
 
+# Hops used for boiling
+fun boil: Int do return 0
+# Hops used for dry-hopping
+fun dry_hop: Int do return 1
+# Hops used for mash-time hopping
+fun mash_time: Int do return 2
+
 # Any kind of hop that is to be used
-abstract class Hop
+class Hop
 	# Name of the hop variety
 	var name: String
 
-	# Percentage of alpha-acids contained in said hop variety
-	var alpha_acid: Float
-
 	# The absorption factor of the hop, expressed in ml/oz
-	fun absorption_factor: Volume is abstract
-end
-
-class Leaf
-	super Hop
-
-	redef fun absorption_factor do return once new Liter(.215)
-end
-
-class Pellet
-	super Hop
-
-	redef fun absorption_factor do return once new Liter(.215)
+	fun absorption_factor: Volume do return new Liter(.215)
 end
 
 # A `HopProfile` is a hop used in a recipe with its related quantity and use in the recipe
@@ -39,14 +31,16 @@ class HopProfile
 	# Time the hop is supposed to stay in recipe (either at boil or in dry-hop)
 	var time: Time
 
+	# Percentage of alpha-acids contained in said hop variety
+	var alpha_acid: Float
+
+	# How is the hop used in the recipe?
+	#
+	# Can either be `boil`, `dry_hop` or `mash_time`
+	#
+	# FIXME: Replace with an enum when available
+	var use: Int
+
 	# Computes the total AAU (Alpha-Acid Units) produced by the hops
-	fun aau: Float do return quantity.to_oz.value * hop.alpha_acid
-end
-
-class Boil
-	super HopProfile
-end
-
-class DryHop
-	super HopProfile
+	fun aau: Float do return quantity.to_oz.value * alpha_acid
 end

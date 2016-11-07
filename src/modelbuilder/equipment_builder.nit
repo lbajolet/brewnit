@@ -21,7 +21,7 @@ redef class Node
 end
 
 redef class Nequipment
-	var eq: Equipment
+	var eq: nullable Equipment is noinit
 
 	redef fun accept_equipment_visitor(v) do
 		var eff: nullable Float = null
