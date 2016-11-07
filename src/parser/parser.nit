@@ -1,26 +1,16 @@
 import beer_lexer
 import beer_parser
 
-redef class Parser_beer
-
-	var file: String
-
-	init(file: String)
-	do
-		if not file.file_exists then
-			print "Unable to locate file {file}"
-			exit(-1)
-		end
-		self.file = file
+fun parse_beer_file(file: String): nullable Node do
+	var p = file.to_path
+	if not p.exists then
+		print "File '{file}' not found."
+		return null
 	end
-
-	fun parse_file: Node
-	do
-		var fs = new FileReader.open(file)
-		var s = fs.read_all
-		var l = new Lexer_beer(s)
-		var tks = l.lex
-		tokens.add_all tks
-		return parse
-	end
+	var s = p.read_all
+	var l = new Lexer_beer(s)
+	var parser = new Parser_beer
+	var tks = l.lex
+	parser.tokens.add_all tks
+	return parser.parse
 end
