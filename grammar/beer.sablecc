@@ -18,6 +18,8 @@ kw_hops = 'HOPS';
 kw_hop = 'HOP';
 kw_yeast = 'YEAST';
 
+kw_compound = kw_grain | kw_adjunct | kw_sugar | kw_extract;
+
 hop_type = ('Leaf' | 'Pellet');
 hop_use = ('Boil' | 'DryHop');
 
@@ -55,12 +57,8 @@ equipment_body =
 	{efficiency:} 'efficiency' ':'? number ;
 
 fermentables = kw_fermentables compound+ ;
-compound =
-	{grain:} kw_grain string compound_body+ |
-	{adjunct:} kw_adjunct string compound_body+ |
-	{sugar:} kw_sugar string compound_body+ |
-	{extract:} kw_extract string compound_body+ ;
 
+compound = kw_compound string compound_body+;
 compound_body =
 	{potential:} 'potential' ':'? grvunit |
 	{colour:} 'colour' ':'? colunit |
