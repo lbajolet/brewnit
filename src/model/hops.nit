@@ -10,20 +10,10 @@ fun dry_hop: Int do return 1
 # Hops used for mash-time hopping
 fun mash_time: Int do return 2
 
-# Any kind of hop that is to be used
+# Any kind of hop used in a recipe
 class Hop
 	# Name of the hop variety
 	var name: String
-
-	# The absorption factor of the hop, expressed in ml/oz
-	fun absorption_factor: Volume do return new Liter(.215)
-end
-
-# A `HopProfile` is a hop used in a recipe with its related quantity and use in the recipe
-class HopProfile
-
-	# The name and alpha-acid content of the hop
-	var hop: Hop
 
 	# Quantity of hop present in the recipe
 	var quantity: Weight
@@ -43,4 +33,7 @@ class HopProfile
 
 	# Computes the total AAU (Alpha-Acid Units) produced by the hops
 	fun aau: Float do return quantity.to_oz.value * alpha_acid
+
+	# The absorption factor of the hop, expressed in ml/oz
+	fun absorption_factor: Volume do return new Liter(.215)
 end

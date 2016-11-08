@@ -48,7 +48,7 @@ class Recipe
 	var name: String
 
 	# All the hops used in the recipe and their use
-	var hops = new Array[HopProfile]
+	var hops = new Array[Hop]
 
 	# All the malts used in the recipe and how they are used
 	var malts = new Array[FermentableProfile]
