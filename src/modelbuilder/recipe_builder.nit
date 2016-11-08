@@ -38,9 +38,10 @@ redef class Nprog
 		var ys = n_yeast
 		var rv = rec.volume
 		var rt = rec.temperature
+		var rmt = rec.mash_time
 		var req = eq.equipment
 		if rv == null or rt == null or req == null then return
-		var ret = new Recipe(rec.name, rv, rt, req, ys.yeast)
+		var ret = new Recipe(rec.name, rv, rt, rmt, req, ys.yeast)
 		ret.hops.add_all hops.hops
 		ret.malts.add_all fr.fermentables
 		v.recipe = ret
@@ -55,6 +56,8 @@ redef class Nrecipe
 	var volume: nullable Volume = null
 	# Target mash temperature
 	var temperature: nullable Temperature = null
+	# Target mash time, defaults to 60 min
+	var mash_time: Time = new Hour(1.0)
 
 	redef fun accept_recipe_visitor(v) do
 		for i in n_recipe_body.children do
@@ -62,6 +65,8 @@ redef class Nrecipe
 				volume = i.volume
 			else if i isa Nrecipe_body_mash_temp then
 				temperature = i.mash_temp
+			else if i isa Nrecipe_body_mash_time then
+				mash_time = i.mash_time
 			end
 		end
 		if volume == null then v.errors.push "Error: Missing volume information in recipe at {position or else "?"}"
@@ -77,7 +82,12 @@ end
 
 redef class Nrecipe_body_mash_temp
 	# Mash temperature of a recipe
-	var mash_temp: Temperature is lazy  do return n_tmpunit.val
+	var mash_temp: Temperature is lazy do return n_tmpunit.val
+end
+
+redef class Nrecipe_body_mash_time
+	# Mash time of a recipe
+	var mash_time: Time is lazy do return n_timunit.val
 end
 
 redef class Nyeast

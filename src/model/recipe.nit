@@ -62,6 +62,9 @@ class Recipe
 	# Temperature range : 64 C to 69/70 C
 	var target_mash_temp: Temperature
 
+	# How long is the mash step?
+	var mash_time: Time
+
 	# The equipment to be used for the recipe
 	var equipment: Equipment
 

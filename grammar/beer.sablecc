@@ -49,7 +49,8 @@ timunit = number time_unit;
 recipe = kw_recipe string recipe_body+;
 recipe_body =
 	{volume:} 'volume' ':'? volunit |
-	{mash_temp:} 'mash_temp' ':'? tmpunit ;
+	{mash_temp:} 'mash_temp' ':'? tmpunit |
+	{mash_time:} 'mash_time' ':'? timunit;
 
 equipment = kw_equipment string equipment_body+ ;
 equipment_body =
