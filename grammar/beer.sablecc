@@ -72,10 +72,14 @@ hop_profile_body =
 	{aa:} 'alpha' ':'? number |
 	{quantity:} 'quantity' ':'? weiunit |
 	{time:} 'time' ':'? timunit |
-	{type:} 'type' ':'? hop_type |
 	{use:}'use' ':'? hop_use;
 
 yeast = kw_yeast string yeast_body+;
 yeast_body =
-	{floc:}'flocculation' ':'? flocculation_type |
-	{att:}'attenuation' ':'? number;
+	{brand:} 'brand' ':'? string |
+	{att:}'attenuation' ':'? number |
+	{alias:} 'alias' ':'? str_list;
+
+str_list =
+	{item:} string str_list |
+	{none:} ;
