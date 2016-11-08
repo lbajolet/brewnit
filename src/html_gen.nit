@@ -24,13 +24,9 @@ redef class Recipe
 				Bitterness = {{{ibu}}} IBU <br/>
 				Estimated colour = {{{colour}}} <br/>
 			</div>"""
-			if yeast != null then
-				add """<div id = "Yeast"><h2>Yeast</h2>"""
-
-				add yeast.as(not null)
-
-				add "</div>"
-			end
+			add """<div id = "Yeast"><h2>Yeast</h2>"""
+			add yeast
+			add "</div>"
 			add """<div id = "Fermentables">
 				<h2>Fermentables</h2>
 				<table>
@@ -69,8 +65,8 @@ After that, add :<br/>
 <ul>"""
 
 		for i in hops do
-			if i isa Boil then
-				add """<li> {{{i.quantity}}} of {{{i.hop.name}}} {{{i.time}}} before the end of the boil.</li>"""
+			if i.use == boil then
+				add """<li> {{{i.quantity}}} of {{{i.name}}} {{{i.time}}} before the end of the boil.</li>"""
 			end
 		end
 		add """</ul>
@@ -80,7 +76,7 @@ Add the Yeast and leave to ferment."""
 
 		var dh = false
 		for i in hops do
-			if i isa DryHop then
+			if i.use == dry_hop then
 				dh = true
 				break
 			end
@@ -90,8 +86,8 @@ Add the Yeast and leave to ferment."""
 			add """<h4>Dry Hopping</h4>
 			Add :<br/><ul>"""
 			for i in hops do
-				if i isa DryHop then
-					add  """<li> {{{i.quantity}}} of {{{i.hop.name}}} {{{i.time}}} before end of fermentation.</li>"""
+				if i.use == dry_hop then
+					add  """<li> {{{i.quantity}}} of {{{i.name}}} {{{i.time}}} before end of fermentation.</li>"""
 				end
 			end
 			add "</ul>"
@@ -106,18 +102,7 @@ end
 redef class Yeast
 	super Template
 
-	redef fun rendering do
-		add "Yeast : {brand} {name}<br/>Attenuation : {attenuation}<br/>Flocculation : "
-		if flocculation == 0 then
-			add "Low"
-		else if flocculation == 1 then
-			add "Medium"
-		else
-			add "High"
-		end
-		add "<br/>"
-	end
-
+	redef fun rendering do add "Yeast : {brand} {name}<br/>Attenuation : {attenuation}<br/>"
 end
 
 redef class FermentableProfile
@@ -141,22 +126,13 @@ redef class Fermentable
 	end
 end
 
-redef class HopProfile
-	super Template
-
-	redef fun rendering do
-		add "<tr>"
-		add hop
-		add "<td>{time}</td><td>{quantity}</td><td>{class_name}</td>"
-		add "</tr>"
-	end
-end
-
 redef class Hop
 	super Template
 
 	redef fun rendering do
+		add "<tr>"
 		add """<td>{{{name}}}</td><td>{{{alpha_acid}}} %</td>"""
+		add "<td>{time}</td><td>{quantity}</td><td>{class_name}</td>"
+		add "</tr>"
 	end
 end
-
