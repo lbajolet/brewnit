@@ -4,10 +4,16 @@ module units
 # Any kind of unit, its value should be set at construction time
 abstract class Unit
 
+	# Any compatible unit type for operations
 	type SELFUNIT: Unit
 
+	# Adds two compatible unit types
 	fun +(o: SELFUNIT): SELF is abstract
 
+	# Substracts two compatible unit types
+	fun -(o: SELFUNIT): SELF is abstract
+
+	# Unit textual description
 	fun unit: String is abstract
 
 	redef fun to_s do return "{value.to_s} {unit}"
@@ -16,10 +22,13 @@ abstract class Unit
 	var value: Float
 end
 
+# Builds units when given the right parameters
 abstract class UnitFactory
 
+	# Which units should `self` build?
 	type SELFUNIT: Unit
 
+	# Build a unit of the desired type
 	fun build_unit(val: Float, s: String): SELFUNIT is abstract
 end
 
@@ -36,6 +45,7 @@ abstract class Colour
 	fun to_ebc: EBC is abstract
 end
 
+# Build colours
 class ColourFactory
 	super UnitFactory
 
@@ -96,6 +106,7 @@ abstract class Weight
 	fun to_lbs: Pound is abstract
 end
 
+# Builds weights
 class WeightFactory
 	super UnitFactory
 
@@ -167,15 +178,20 @@ abstract class Volume
 
 	redef type SELFUNIT: Volume
 
+	# To US Gallon
 	fun to_us_gal: USGallon is abstract
 
+	# To US Quart
 	fun to_us_qt: USQuart is abstract
 
+	# To Imperial Gallon
 	fun to_imp_gal: ImperialGallon is abstract
 
+	# To Liter
 	fun to_l: Liter is abstract
 end
 
+# Builds volumes
 class VolumeFactory
 	super UnitFactory
 
@@ -248,6 +264,7 @@ class Liter
 	redef fun to_us_qt do return new USQuart(value / 0.946352946)
 end
 
+# US Quart, seldom used in the USA
 class USQuart
 	super Volume
 
@@ -280,6 +297,7 @@ abstract class Gravity
 	fun to_plato: Plato is abstract
 end
 
+# Builds gravity units
 class GravityFactory
 	super UnitFactory
 
@@ -315,6 +333,7 @@ class SG
 	redef fun to_plato do return new Plato((258.6 * (value - 1.0)) / (.88 * value + .12))
 end
 
+# Gravitu Units, standard gravity measure
 class GU
 	super Gravity
 
@@ -329,6 +348,7 @@ class GU
 	redef fun to_plato do return to_sg.to_plato
 end
 
+# Degrees Plato, used in brewing
 class Plato
 	super Gravity
 
@@ -343,16 +363,20 @@ class Plato
 	redef fun to_plato do return self
 end
 
+# Builds temperature units
 abstract class Temperature
 	super Unit
 
 	redef type SELFUNIT: Temperature
 
+	# To Fahrenheit
 	fun to_f: Fahrenheit is abstract
 
+	# To Celsius
 	fun to_c: Celsius is abstract
 end
 
+# Builds temperature units
 class TemperatureFactory
 	super UnitFactory
 
@@ -371,6 +395,8 @@ class TemperatureFactory
 
 end
 
+# Fahrenheit Degrees, used in the USA and eventually
+# in other countries for special contexts
 class Fahrenheit
 	super Temperature
 
@@ -383,6 +409,7 @@ class Fahrenheit
 	redef fun to_c do return new Celsius(((value - 32.0) * 5.0) / 9.0)
 end
 
+# Celsius degrees, standard for temperature measurement
 class Celsius
 	super Temperature
 
@@ -395,22 +422,29 @@ class Celsius
 	redef fun to_f do return new Fahrenheit((value * 9.0 / 5.0) + 32.0)
 end
 
+# Time units
 abstract class Time
 	super Unit
 
 	redef type SELFUNIT: Time
 
+	# To minutes
 	fun to_min: Minute is abstract
 
+	# To seconds
 	fun to_sec: Second is abstract
 
+	# To hours
 	fun to_h: Hour is abstract
 
+	# To days
 	fun to_days: Day is abstract
 
+	# To weeks
 	fun to_weeks: Week is abstract
 end
 
+# Builds time units
 class TimeFactory
 	super UnitFactory
 
@@ -434,6 +468,7 @@ class TimeFactory
 	end
 end
 
+# Minute
 class Minute
 	super Time
 
@@ -452,6 +487,7 @@ class Minute
 	redef fun to_weeks do return new Week(value / 10080.0)
 end
 
+# Hour
 class Hour
 	super Time
 
@@ -470,6 +506,7 @@ class Hour
 	redef fun to_weeks do return new Week(value / 168.0)
 end
 
+# Second
 class Second
 	super Time
 
@@ -488,6 +525,7 @@ class Second
 	redef fun to_weeks do return new Week(value / 604800.0)
 end
 
+# Day
 class Day
 	super Time
 
@@ -506,6 +544,7 @@ class Day
 	redef fun to_weeks do return new Week(value / 7.0)
 end
 
+# Week
 class Week
 	super Time
 
