@@ -13,14 +13,13 @@ redef class Node
 end
 
 redef class Nstring
-	var value: String
+	var value: String is noinit
 
 	redef fun accept_literal_visitor(v) do value = text.substring(1, text.length - 2)
 end
 
 redef class Nnumber
-
-	var value: Float
+	var value: Float is noinit
 
 	redef fun accept_literal_visitor(v) do value = text.to_f
 end

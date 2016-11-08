@@ -1,56 +1,23 @@
-import literal
-import unit_build
-import equipment_builder
-import fermentables_visitor
-import hop_builder
-import yeast_builder
+# Any facilities to rebuild a valid model from a beer description file
+module modelbuilder
+
 import recipe_builder
 import parser
 
-class Modelbuilder
-
-	var recipe: Recipe
-
-	init(src: String)
-	do
-		var p = new Parser_beer(src)
-		var n = p.parse_file
-		(new LiteralVisitor).enter_visit(n)
-		(new UnitVisitor).enter_visit(n)
-		(new FermentablesVisitor).enter_visit(n)
-		(new HopVisitor).enter_visit(n)
-		(new EquipmentVisitor).enter_visit(n)
-		(new YeastVisitor).enter_visit(n)
-		(new RecipeVisitor).enter_visit(n)
-		var f = new RecipeFinalizer
-		f.enter_visit(n)
-		recipe = f.recipe
+# Build a recipe from a beer description file
+fun build_recipe_from_beer(path: String): nullable Recipe do
+	var n = parse_beer_file(path)
+	if n == null then
+		print "Error when parsing file {path}".red
+		return null
 	end
-
-end
-
-class RecipeFinalizer
-	super Visitor
-
-	var recipe: Recipe is noinit
-
-	redef fun visit(n) do n.accept_finalizer(self)
-
-end
-
-redef class Node
-
-	fun accept_finalizer(v: RecipeFinalizer) do visit_children(v)
-end
-
-redef class Nprog
-
-	redef fun accept_finalizer(v) do
-		var recipe = n_recipe.recipe
-		recipe.equipment = n_equipment.eq
-		recipe.malts.add_all n_fermentables.ferms
-		recipe.hops.add_all n_hops.hops
-		recipe.yeast = n_yeast.yeast
-		v.recipe = recipe
+	if n isa NError then
+		print n.to_s.red
+		return null
 	end
+	(new LiteralVisitor).enter_visit(n)
+	(new UnitVisitor).enter_visit(n)
+	var rec = new RecipeVisitor
+	rec.enter_visit(n)
+	return rec.recipe
 end
