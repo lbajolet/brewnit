@@ -11,61 +11,55 @@ end
 
 redef class Node
 
+	# Accepts a `UnitVisitor` `v`
 	fun accept_unit_visitor(v: UnitVisitor) do visit_children v
 
 end
 
 redef class Nvolunit
 
-	var val: Volume
+	# Parsed volume value
+	var val: Volume is noinit
 
-	fun volume_factory: VolumeFactory do return once new VolumeFactory
-
-	redef fun accept_unit_visitor(v) do val = volume_factory.build_unit(n_number.value, n_volume_unit.text)
-
+	redef fun accept_unit_visitor(v) do val = new Volume.with_name(n_number.value, n_volume_unit.text)
 end
 
 redef class Ntmpunit
 
-	var val: Temperature
+	# Parsed temperature value
+	var val: Temperature is noinit
 
-	fun temp_factory: TemperatureFactory do return once new TemperatureFactory
-
-	redef fun accept_unit_visitor(v) do val = temp_factory.build_unit(n_number.value, n_temp_unit.text)
+	redef fun accept_unit_visitor(v) do val = new Temperature.with_name(n_number.value, n_temp_unit.text)
 end
 
 redef class Ngrvunit
 
-	var val: Gravity
+	# Parsed gravity value
+	var val: Gravity is noinit
 
-	fun grav_factory: GravityFactory do return once new GravityFactory
-
-	redef fun accept_unit_visitor(v) do val = grav_factory.build_unit(n_number.value, n_gravity_unit.text)
+	redef fun accept_unit_visitor(v) do val = new Gravity.with_name(n_number.value, n_gravity_unit.text)
 end
 
 redef class Ncolunit
 
-	var val: Colour
+	# Parsed colour value
+	var val: Colour is noinit
 
-	fun col_factory: ColourFactory do return once new ColourFactory
-
-	redef fun accept_unit_visitor(v) do val = col_factory.build_unit(n_number.value, n_colour_unit.text)
+	redef fun accept_unit_visitor(v) do val = new Colour.with_name(n_number.value, n_colour_unit.text)
 end
 
 redef class Nweiunit
 
-	var val: Weight
+	# Parsed weight value
+	var val: Weight is noinit
 
-	fun weight_factory: WeightFactory do return once new WeightFactory
-
-	redef fun accept_unit_visitor(v) do val = weight_factory.build_unit(n_number.value, n_weight_unit.text)
+	redef fun accept_unit_visitor(v) do val = new Weight.with_name(n_number.value, n_weight_unit.text)
 end
 
 redef class Ntimunit
 
-	var val: Time
+	# Parsed time value
+	var val: Time is noinit
 
-	fun time_factory: TimeFactory do return once new TimeFactory
-
-	redef fun accept_unit_visitor(v) do val = time_factory.build_unit(n_number.value, n_time_unit.text)
+	redef fun accept_unit_visitor(v) do val = new Time.with_name(n_number.value, n_time_unit.text)
 end

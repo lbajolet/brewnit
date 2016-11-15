@@ -4,9 +4,12 @@ module recipe
 import mash
 import hops
 import units
+import db_base
 
 # Yeast used for a recipe
 class Yeast
+	super UniqueEntity
+
 	# Brand manufacturing the yeast
 	var brand: String
 
@@ -22,6 +25,8 @@ end
 
 # The equipment used for the recipe
 class Equipment
+	super UniqueEntity
+
 	# Name of the equipment
 	var name: String
 
@@ -44,11 +49,13 @@ end
 
 # A recipe for a particular beer
 class Recipe
+	super UniqueEntity
+
 	# Name of the recipe
 	var name: String
 
 	# All the hops used in the recipe and their use
-	var hops = new Array[Hop]
+	var hops = new Array[HopProfile]
 
 	# All the malts used in the recipe and how they are used
 	var malts = new Array[FermentableProfile]

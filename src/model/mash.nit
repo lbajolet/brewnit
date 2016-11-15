@@ -1,10 +1,13 @@
 # All mash-related calculations are to be stored here
 module mash
 
+import db_base
 import units
 
 # A fermentable is any kind of material that can produce fermentable sugars during mash phase or boil (sugars and such)
 class Fermentable
+	super UniqueEntity
+
 	# Name of the type of mash
 	var name: String
 
@@ -16,10 +19,21 @@ class Fermentable
 
 	# Does the fermentable need mashing or not (influences efficiency)
 	fun need_mash: Bool is abstract
+
+	# Builds a new `Fermentable` with its type name
+	new with_name(name: String, potential: Gravity, colour: Colour, f_type: String) do
+		if f_type == "grain" then return new Grain(name, potential, colour)
+		if f_type == "adjunct" then return new Adjunct(name, potential, colour)
+		if f_type == "sugar" then return new Sugar(name, potential, colour)
+		if f_type == "extract" then return new Extract(name, potential, colour)
+		# If unknown type, abort
+		abort
+	end
 end
 
 # A fermentable used in a `Recipe`
 class FermentableProfile
+	super UniqueEntity
 
 	# Type of Fermentable used
 	var fermentable: Fermentable

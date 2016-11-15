@@ -3,7 +3,7 @@ module recipe_builder
 
 import literal
 import unit_build
-import model
+import db
 import console
 
 # Visitor for beer files
@@ -101,18 +101,22 @@ redef class Nyeast
 		visit_children(v)
 		var att: nullable Float = null
 		var brand = ""
+		var aliases = new Array[String]
 		for i in n_yeast_body.children do
 			if i isa Nyeast_body_att then
 				att = i.attenuation
 			else if i isa Nyeast_body_brand then
 				brand = i.brand
+			else if i isa Nyeast_body_alias then
+				i.get_aliases
+				aliases = i.aliases
 			end
 		end
 		if att == null then
 			v.errors.add "Error, missing attenuation information in Yeast at {position or else "?"}"
 			return
 		end
-		yeast = new Yeast(brand, name, [""], att)
+		yeast = new Yeast(brand, name, aliases, att)
 	end
 end
 
@@ -128,9 +132,29 @@ redef class Nyeast_body_brand
 	var brand: String is lazy do return n_string.value
 end
 
-redef class Nstr_list
+redef class Nyeast_body_alias
 	# Aliases of a yeast's name
 	var aliases = new Array[String]
+
+	# Get the aliases of a Yeast
+	fun get_aliases do
+		n_str_list.populate(aliases)
+	end
+end
+
+redef class Nstr_list
+	# Populates `arr` with the contents of `self`
+	fun populate(arr: Array[String]) do end
+end
+
+redef class Nstr_list_item
+	# The value of a string list node
+	var value: String is lazy do return n_string.value
+
+	redef fun populate(arr) do
+		arr.add(value)
+		n_str_list.populate(arr)
+	end
 end
 
 redef class Nequipment
@@ -215,18 +239,7 @@ redef class Ncompound
 
 	redef fun accept_recipe_visitor(v) do
 		if not build_fermentable(v) then return
-		if f_type == "grain" then
-			fermentable = new Grain(name, potential.as(not null), colour.as(not null))
-		else if f_type == "adjunct" then
-			fermentable = new Adjunct(name, potential.as(not null), colour.as(not null))
-		else if f_type == "sugar" then
-			fermentable = new Sugar(name, potential.as(not null), colour.as(not null))
-		else if f_type == "extract" then
-			fermentable = new Extract(name, potential.as(not null), colour.as(not null))
-		else
-			return
-		end
-		var ferm = fermentable.as(not null)
+		var ferm = new Fermentable.with_name(name, potential.as(not null), colour.as(not null), f_type)
 		var qt = quantity.as(not null)
 		profile = new FermentableProfile(ferm, qt)
 	end
@@ -293,7 +306,7 @@ end
 redef class Nhops
 
 	# Hops in the recipe
-	var hops = new Array[Hop]
+	var hops = new Array[HopProfile]
 
 	redef fun accept_recipe_visitor(v) do
 		super
@@ -310,7 +323,7 @@ end
 redef class Nhop_profile
 
 	# How the hop is used in the recipe
-	var profile: nullable Hop = null
+	var profile: nullable HopProfile = null
 	# Alpha Acid content of a hop
 	var alpha_acid: nullable Float = null
 	# Quantity used in the recipe
@@ -354,7 +367,8 @@ redef class Nhop_profile
 		end
 		if err then return
 
-		profile = new Hop(name, quantity.as(not null), time.as(not null), alpha_acid.as(not null), use.as(not null))
+		var hop = new Hop(name)
+		profile = new HopProfile(hop, quantity.as(not null), time.as(not null), alpha_acid.as(not null), use.as(not null))
 	end
 end
 

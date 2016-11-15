@@ -1,6 +1,8 @@
 # All the units to be used in brewery calculations are stored here
 module units
 
+import db_base
+
 # Any kind of unit, its value should be set at construction time
 abstract class Unit
 
@@ -22,16 +24,6 @@ abstract class Unit
 	var value: Float
 end
 
-# Builds units when given the right parameters
-abstract class UnitFactory
-
-	# Which units should `self` build?
-	type SELFUNIT: Unit
-
-	# Build a unit of the desired type
-	fun build_unit(val: Float, s: String): SELFUNIT is abstract
-end
-
 # Abstract colour value, expressed in either SRM or EBC
 abstract class Colour
 	super Unit
@@ -43,25 +35,15 @@ abstract class Colour
 
 	# Converts the value to EBC units
 	fun to_ebc: EBC is abstract
-end
 
-# Build colours
-class ColourFactory
-	super UnitFactory
-
-	redef type SELFUNIT: Colour
-
-	redef fun build_unit(val, s) do
-		if s == "SRM" then
-			return new SRM(val)
-		else if s == "EBC" then
-			return new EBC(val)
-		else
-			print "Cannot find colour unit {s}"
-			abort
-		end
+	# Build a new Colour with its unit name
+	new with_name(value: Float, unit: String) do
+		if unit == "SRM" then return new SRM(value)
+		if unit == "EBC" then return new EBC(value)
+		# If a unit is added but not buildale through this constructor
+		# it requires to add the support here.
+		abort
 	end
-
 end
 
 # Colour, in SRM (Standard Reference Method) units
@@ -104,27 +86,16 @@ abstract class Weight
 
 	# Converts the weight into pounds
 	fun to_lbs: Pound is abstract
-end
 
-# Builds weights
-class WeightFactory
-	super UnitFactory
-
-	redef type SELFUNIT: Weight
-
-	redef fun build_unit(val, s) do
-		if s == "g" then
-			return new Gram(val)
-		else if s == "oz" then
-			return new Ounce(val)
-		else if s == "lbs" then
-			return new Pound(val)
-		else
-			print "Cannot find weight unit {s}"
-			abort
-		end
+	# Build a new Weight with its unit name
+	new with_name(value: Float, unit: String) do
+		if unit == "oz" then return new Ounce(value)
+		if unit == "lbs" then return new Pound(value)
+		if unit == "g" then return new Gram(value)
+		# If a unit is added but not buildale through this constructor
+		# it requires to add the support here.
+		abort
 	end
-
 end
 
 # Weight unit, an oz is worth 28.3495231 g
@@ -189,27 +160,16 @@ abstract class Volume
 
 	# To Liter
 	fun to_l: Liter is abstract
-end
 
-# Builds volumes
-class VolumeFactory
-	super UnitFactory
-
-	redef type SELFUNIT: Volume
-
-	redef fun build_unit(val, s) do
-		if s == "gal" then
-			return new USGallon(val)
-		else if s == "L" then
-			return new Liter(val)
-		else if s == "ImpGal" then
-			return new ImperialGallon(val)
-		else if s == "qt" then
-			return new USQuart(val)
-		else
-			print "Unknown volume unit {s}"
-			abort
-		end
+	# Build a new Volume with its unit name
+	new with_name(value: Float, unit: String) do
+		if unit == "gal" then return new USGallon(value)
+		if unit == "Imperial gal" then return new ImperialGallon(value)
+		if unit == "L" then return new Liter(value)
+		if unit == "qt" then return new USQuart(value)
+		# If a unit is added but not buildale through this constructor
+		# it requires to add the support here.
+		abort
 	end
 end
 
@@ -295,26 +255,15 @@ abstract class Gravity
 
 	# Converts a gravity unit to its Plato representation
 	fun to_plato: Plato is abstract
-end
 
-# Builds gravity units
-class GravityFactory
-	super UnitFactory
-
-	redef type SELFUNIT: Gravity
-
-	redef fun build_unit(val, s)
-	do
-		if s == "SG" then
-			return new SG(val)
-		else if s == "GU" then
-			return new GU(val)
-		else if s == "P" then
-			return new Plato(val)
-		else
-			print "Unknown gravity unit {s}"
-			abort
-		end
+	# Build a new Gravity with its unit name
+	new with_name(value: Float, unit: String) do
+		if unit == "SG" then return new SG(value)
+		if unit == "GU" then return new GU(value)
+		if unit == "P" then return new Plato(value)
+		# If a unit is added but not buildale through this constructor
+		# it requires to add the support here.
+		abort
 	end
 end
 
@@ -374,25 +323,15 @@ abstract class Temperature
 
 	# To Celsius
 	fun to_c: Celsius is abstract
-end
 
-# Builds temperature units
-class TemperatureFactory
-	super UnitFactory
-
-	redef type SELFUNIT: Temperature
-
-	redef fun build_unit(val, s) do
-		if s == "F" then
-			return new Fahrenheit(val)
-		else if s == "C" then
-			return new Celsius(val)
-		else
-			print "Unknown temperature unit {s}"
-			abort
-		end
+	# Build a new Temperature with its unit name
+	new with_name(value: Float, unit: String) do
+		if unit == "F" then return new Fahrenheit(value)
+		if unit == "C" then return new Celsius(value)
+		# If a unit is added but not buildale through this constructor
+		# it requires to add the support here.
+		abort
 	end
-
 end
 
 # Fahrenheit Degrees, used in the USA and eventually
@@ -442,29 +381,17 @@ abstract class Time
 
 	# To weeks
 	fun to_weeks: Week is abstract
-end
 
-# Builds time units
-class TimeFactory
-	super UnitFactory
-
-	redef type SELFUNIT: Time
-
-	redef fun build_unit(val, s) do
-		if s == "min" then
-			return new Minute(val)
-		else if s == "h" then
-			return new Hour(val)
-		else if s == "s" then
-			return new Second(val)
-		else if s == "days" or s == "day" then
-			return new Day(val)
-		else if s == "weeks" or s == "week" then
-			return new Week(val)
-		else
-			print "Unknown time unit {s}"
-			abort
-		end
+	# Build a new Time with its unit name
+	new with_name(value: Float, unit: String) do
+		if unit == "min" then return new Minute(value)
+		if unit == "h" then return new Hour(value)
+		if unit == "s" then return new Second(value)
+		if unit == "day" or unit == "days" then return new Day(value)
+		if unit == "week" or unit == "weeks" then return new Week(value)
+		# If a unit is added but not buildale through this constructor
+		# it requires to add the support here.
+		abort
 	end
 end
 

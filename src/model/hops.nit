@@ -2,6 +2,7 @@
 module hops
 
 import units
+import db_base
 
 # Hops used for boiling
 fun boil: Int do return 0
@@ -12,8 +13,18 @@ fun mash_time: Int do return 2
 
 # Any kind of hop used in a recipe
 class Hop
+	super UniqueEntity
+
 	# Name of the hop variety
 	var name: String
+end
+
+# A use fo a Hop in a Recipe
+class HopProfile
+	super UniqueEntity
+
+	# The hop used in the recipe
+	var hop: Hop
 
 	# Quantity of hop present in the recipe
 	var quantity: Weight
@@ -21,7 +32,7 @@ class Hop
 	# Time the hop is supposed to stay in recipe (either at boil or in dry-hop)
 	var time: Time
 
-	# Percentage of alpha-acids contained in said hop variety
+	# Percentage of alpha-acids contained in hop
 	var alpha_acid: Float
 
 	# How is the hop used in the recipe?
