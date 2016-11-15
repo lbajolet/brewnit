@@ -3,7 +3,6 @@ module recipe_builder
 
 import literal
 import unit_build
-import db
 import console
 
 # Visitor for beer files
