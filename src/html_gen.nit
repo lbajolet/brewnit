@@ -66,7 +66,7 @@ After that, add :<br/>
 
 		for i in hops do
 			if i.use == boil then
-				add """<li> {{{i.quantity}}} of {{{i.name}}} {{{i.time}}} before the end of the boil.</li>"""
+				add """<li> {{{i.quantity}}} of {{{i.hop.name}}} {{{i.time}}} before the end of the boil.</li>"""
 			end
 		end
 		add """</ul>
@@ -87,7 +87,7 @@ Add the Yeast and leave to ferment."""
 			Add :<br/><ul>"""
 			for i in hops do
 				if i.use == dry_hop then
-					add  """<li> {{{i.quantity}}} of {{{i.name}}} {{{i.time}}} before end of fermentation.</li>"""
+					add  """<li> {{{i.quantity}}} of {{{i.hop.name}}} {{{i.time}}} before end of fermentation.</li>"""
 				end
 			end
 			add "</ul>"
@@ -130,9 +130,18 @@ redef class Hop
 	super Template
 
 	redef fun rendering do
+		add """<td>{{{name}}}</td>"""
+	end
+end
+
+redef class HopProfile
+	super Template
+
+	redef fun rendering do
 		add "<tr>"
-		add """<td>{{{name}}}</td><td>{{{alpha_acid}}} %</td>"""
-		add "<td>{time}</td><td>{quantity}</td><td>{class_name}</td>"
+		add hop
+		add """<td>{{{alpha_acid}}} %</td>"""
+		add "<td>{time}</td><td>{quantity}</td><td>{if use == boil then "Boil" else "Dry Hop"}</td>"
 		add "</tr>"
 	end
 end
