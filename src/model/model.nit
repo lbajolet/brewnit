@@ -1,4 +1,4 @@
-import recipe
-import hops
-import mash
-import units
+# Model for brewnit
+module model
+
+import db_entities
