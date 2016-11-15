@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS yeasts(
 	id		INTEGER PRIMARY KEY	AUTOINCREMENT,
 	brand		TEXT			DEFAULT '',
 	name		TEXT			NOT NULL,
-	attenuation	INTEGER			NOT NULL
+	attenuation	FLOAT			NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS yeast_aliases(
