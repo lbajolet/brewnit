@@ -28,6 +28,16 @@ class DBContext
 
 	# Finish property for `with` statements
 	fun finish do connection.close
+
+	# Try selecting data and log errors if there are some
+	fun try_select(query: String): nullable Statement do
+		var res = connection.select(query)
+		if res == null then
+			log_sql_error(self, query)
+			return null
+		end
+		return res
+	end
 end
 
 # A database entity
@@ -67,7 +77,7 @@ class UniqueEntity
 	serialize
 
 	# The identifier for `self` in database
-	var id: Int = -1
+	var id: Int = -1 is writable
 
 	redef fun commit do
 		if id == -1 then return insert

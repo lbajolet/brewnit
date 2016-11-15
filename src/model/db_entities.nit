@@ -101,7 +101,7 @@ end
 redef class FermentableProfile
 	serialize
 
-	var recipe_id: nullable Int = null
+	var recipe_id: nullable Int = null is writable
 
 	redef fun insert do
 		var rid = recipe_id
@@ -151,7 +151,7 @@ end
 redef class HopProfile
 	serialize
 
-	var recipe_id: nullable Int = null
+	var recipe_id: nullable Int = null is writable
 
 	redef fun insert do
 		var rid = recipe_id

@@ -44,7 +44,7 @@ class Equipment
 	# Percentage of volume lost by boiling every hour
 	#
 	# Defaults to 5%
-	var boil_loss = 0.05
+	var boil_loss = 0.05 is writable
 end
 
 # A recipe for a particular beer
