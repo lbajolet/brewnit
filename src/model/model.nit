@@ -1,4 +1,4 @@
 # Model for brewnit
 module model
 
-import db_entities
+import db_binding
