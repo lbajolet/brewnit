@@ -1,4 +1,6 @@
 bin/*
+tests/bin/*
+tests/out/*
 src/parser/*.out
 src/parser/*.dot
 src/parser/beer_lexer.nit
