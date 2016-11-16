@@ -1,3 +1,5 @@
+.PHONY: clean, tests
+
 all: cli cli_db
 	nitserial src/app.nit -o src/app_serial.nit
 	nitc src/app.nit -m app_serial -o bin/brewnit_server
@@ -21,3 +23,7 @@ clean:
 reset_db:
 	-rm brewnit
 	sqlite3 brewnit < db_scripts/init.sql
+
+tests:
+	cd tests && $(MAKE) clean
+	cd tests && $(MAKE)
