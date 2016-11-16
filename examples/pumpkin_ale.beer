@@ -1,0 +1,44 @@
+RECIPE "Pumpkin Ale"
+	volume : 22 L
+	mash_temp : 66.7 C
+EQUIPMENT "Home"
+	volume : 30 L
+	efficiency : 65
+FERMENTABLES
+	GRAIN "Two-Row"
+		potential : 1.038 SG
+		colour : 2 SRM
+		quantity : 4500 g
+	GRAIN "Crystal 40"
+		potential: 1.037 SG
+		colour: 40 SRM
+		quantity: 500 g
+	ADJUNCT "Pumpkin"
+		potential: 1.00 SG
+		colour: 0 SRM
+		quantity: 5 lbs
+	ADJUNCT "Cinnamon"
+		potential: 1 SG
+		colour: 0 SRM
+		quantity: 1.5 g
+	ADJUNCT "Cloves"
+		potential: 1 SG
+		colour: 0 SRM
+		quantity: .5 g
+	ADJUNCT "Ginger"
+		potential: 1 SG
+		colour: 0 SRM
+		quantity: .5 g
+	ADJUNCT "Nutmeg"
+		potential: 1 SG
+		colour: 0 SRM
+		quantity: .5 g
+HOPS
+	HOP "Hallertau Mittlefruer"
+		alpha : 4.11
+		quantity : 40 g
+		time : 60 min
+		use : Boil
+YEAST "S-05"
+	attenuation : 76
+	brand "Safale" 
