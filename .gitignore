@@ -1,7 +1,12 @@
 bin/*
+tests/bin/*
+tests/out/*
 src/parser/*.out
 src/parser/*.dot
 src/parser/beer_lexer.nit
 src/parser/beer_parser.nit
 src/parser/beer_test_parser.nit
 brewnit
+**/Recipe.html
+**/*.swp
+tests/dummy_brewnit
