@@ -82,14 +82,20 @@ redef class DBContext
 end
 
 # A worker specialized in getting data from Database Statements
-private abstract class EntityWorker
+abstract class EntityWorker
 	# The kind of entity `self` supports
 	type ENTITY: Entity
 
 	# Checks the content of a row for compatibility with an object `ENTITY`
 	fun check_data(row: StatementRow): Bool do
 		var m = row.map
-		for i in expected_data do if not m.has_key(i) then return false
+		for i in expected_data do
+			if not m.has_key(i) then
+				print "Missing data `{i}` in map for `{entity_type}`"
+				print "map was {m.join("\n", ": ")}"
+				return false
+			end
+		end
 		return true
 	end
 
@@ -99,6 +105,7 @@ private abstract class EntityWorker
 		return make_entity_from_row(ctx, row)
 	end
 
+	# Fetch one `ENTITY` from DB with `query`
 	fun fetch_one(ctx: DBContext, query: String): nullable ENTITY do
 		var res = ctx.try_select(query)
 		if res == null then
@@ -108,6 +115,7 @@ private abstract class EntityWorker
 		return fetch_one_from_statement(ctx, res)
 	end
 
+	# Fetch multiple `ENTITY` from DB with `query`
 	fun fetch_multiple(ctx: DBContext, query: String): Array[ENTITY] do
 		var res = ctx.try_select(query)
 		if res == null then
@@ -117,12 +125,14 @@ private abstract class EntityWorker
 		return fetch_multiple_from_statement(ctx, res)
 	end
 
+	# Fetch multiple `ENTITY` from DB with `rows`
 	fun fetch_one_from_statement(ctx: DBContext, row: Statement): nullable ENTITY do
 		var ret = fetch_multiple_from_statement(ctx, row)
 		if ret.is_empty then return null
 		return ret.first
 	end
 
+	# Fetch multiple `ENTITY` from DB with `rows`
 	fun fetch_multiple_from_statement(ctx: DBContext, rows: Statement): Array[ENTITY] do
 		var ret = new Array[ENTITY]
 		for i in rows do
@@ -133,6 +143,7 @@ private abstract class EntityWorker
 				ret.clear
 				break
 			end
+			ret.add el
 		end
 		return ret
 	end
@@ -178,9 +189,9 @@ class YeastWorker
 	redef type ENTITY: Yeast
 
 	redef fun entity_type do return "Yeast"
-	
+
 	redef fun expected_data do return ["id", "brand", "name", "attenuation"]
-	
+
 	redef fun make_entity_from_row(ctx, row) do
 		var map = row.map
 		var id = map["id"].as(Int)
