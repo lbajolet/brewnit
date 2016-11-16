@@ -21,3 +21,6 @@ clean:
 reset_db:
 	-rm brewnit
 	sqlite3 brewnit < db_scripts/init.sql
+
+tests:
+	cd tests && $(MAKE)
