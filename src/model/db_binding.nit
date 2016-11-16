@@ -198,7 +198,7 @@ class YeastWorker
 		var name = map["name"].as(String)
 		var brand = map["brand"].as(String)
 		var attenuation = map["attenuation"].as(Float)
-		var ret = new Yeast(brand, name, [""], attenuation)
+		var ret = new Yeast(brand, name, new Array[String], attenuation)
 		ret.set_context(ctx)
 		ret.id = id
 		ret.fetch_aliases
