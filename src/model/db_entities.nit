@@ -1,7 +1,6 @@
 module db_entities
 
 import recipe
-import serialization
 
 redef class DBContext
 	fun has_hop(name: String): Bool do
@@ -30,7 +29,6 @@ redef class DBContext
 end
 
 redef class Fermentable
-	serialize
 
 	fun type_id: Int is abstract
 
@@ -59,7 +57,6 @@ redef class Extract
 end
 
 redef class Yeast
-	serialize
 
 	redef fun insert do
 		var query = "INSERT INTO yeasts(brand, name, attenuation) VALUES ({brand.to_sql_string}, {name.to_sql_string}, {attenuation})"
@@ -83,7 +80,6 @@ redef class Yeast
 end
 
 redef class Equipment
-	serialize
 
 	redef fun insert do
 		var query = "INSERT INTO equipments(name, efficiency, volume, losses, boil_loss) VALUES ({name.to_sql_string}, {efficiency}, {volume.to_l.value}, {trub_losses.to_l.value}, {boil_loss})"
@@ -99,7 +95,6 @@ redef class Equipment
 end
 
 redef class FermentableProfile
-	serialize
 
 	var recipe_id: nullable Int = null is writable
 
@@ -133,7 +128,6 @@ redef class FermentableProfile
 end
 
 redef class Hop
-	serialize
 
 	redef fun insert do
 		var query = "INSERT INTO hops(name) VALUES ({name.to_sql_string})"
@@ -149,7 +143,6 @@ redef class Hop
 end
 
 redef class HopProfile
-	serialize
 
 	var recipe_id: nullable Int = null is writable
 
@@ -183,7 +176,6 @@ redef class HopProfile
 end
 
 redef class Recipe
-	serialize
 
 	redef fun insert do
 		if not yeast.commit or not equipment.commit then return false

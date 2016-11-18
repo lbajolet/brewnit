@@ -9,6 +9,7 @@ import db_base
 # Yeast used for a recipe
 class Yeast
 	super UniqueEntity
+	serialize
 
 	# Brand manufacturing the yeast
 	var brand: String
@@ -26,6 +27,7 @@ end
 # The equipment used for the recipe
 class Equipment
 	super UniqueEntity
+	serialize
 
 	# Name of the equipment
 	var name: String
@@ -50,6 +52,7 @@ end
 # A recipe for a particular beer
 class Recipe
 	super UniqueEntity
+	serialize
 
 	# Name of the recipe
 	var name: String

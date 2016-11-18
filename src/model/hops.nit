@@ -3,6 +3,7 @@ module hops
 
 import units
 import db_base
+import serialization
 
 # Hops used for boiling
 fun boil: Int do return 0
@@ -14,6 +15,7 @@ fun mash_time: Int do return 2
 # Any kind of hop used in a recipe
 class Hop
 	super UniqueEntity
+	serialize
 
 	# Name of the hop variety
 	var name: String
@@ -22,6 +24,7 @@ end
 # A use fo a Hop in a Recipe
 class HopProfile
 	super UniqueEntity
+	serialize
 
 	# The hop used in the recipe
 	var hop: Hop

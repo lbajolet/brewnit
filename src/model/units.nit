@@ -5,6 +5,7 @@ import db_base
 
 # Any kind of unit, its value should be set at construction time
 abstract class Unit
+	serialize
 
 	# Any compatible unit type for operations
 	type SELFUNIT: Unit
@@ -16,7 +17,7 @@ abstract class Unit
 	fun -(o: SELFUNIT): SELF is abstract
 
 	# Unit textual description
-	fun unit: String is abstract
+	var unit: String is abstract
 
 	redef fun to_s do return "{value.to_s} {unit}"
 

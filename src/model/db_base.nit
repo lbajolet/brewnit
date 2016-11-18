@@ -4,6 +4,8 @@ module db_base
 import sqlite3
 import serialization
 import console
+import json::static
+import json
 
 # Context of the Database persistence layer
 class DBContext
@@ -42,7 +44,9 @@ end
 
 # A database entity
 class Entity
+	super Jsonable
 	serialize
+
 	# The database context `self` is linked to
 	var context: nullable DBContext = null is noserialize, writable(set_context)
 
@@ -69,6 +73,8 @@ class Entity
 
 	# Basic template for deleting `self` in database
 	protected fun basic_delete(query: String): Bool is abstract
+
+	redef fun to_json do return serialize_to_json
 end
 
 # An entity with a single ID field

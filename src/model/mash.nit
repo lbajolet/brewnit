@@ -7,6 +7,7 @@ import units
 # A fermentable is any kind of material that can produce fermentable sugars during mash phase or boil (sugars and such)
 class Fermentable
 	super UniqueEntity
+	serialize
 
 	# Name of the type of mash
 	var name: String
@@ -34,6 +35,7 @@ end
 # A fermentable used in a `Recipe`
 class FermentableProfile
 	super UniqueEntity
+	serialize
 
 	# Type of Fermentable used
 	var fermentable: Fermentable
@@ -43,12 +45,12 @@ class FermentableProfile
 
 	# Gravity units produced by the fermentable
 	fun gu: Float do return fermentable.potential.to_gu.value * quantity.to_lbs.value
-
 end
 
 # Grain to be used in a recipe
 class Grain
 	super Fermentable
+	serialize
 
 	redef fun need_mash do return true
 end
@@ -56,6 +58,7 @@ end
 # Adjunct to use in a recipe
 class Adjunct
 	super Fermentable
+	serialize
 
 	redef fun need_mash do return false
 end
@@ -63,6 +66,7 @@ end
 # Sugar to use in a recipe
 class Sugar
 	super Fermentable
+	serialize
 
 	redef fun need_mash do return false
 end
@@ -70,6 +74,7 @@ end
 # Extract to use in a recipe
 class Extract
 	super Fermentable
+	serialize
 
 	redef fun need_mash do return false
 end
