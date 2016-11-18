@@ -1,14 +1,13 @@
 .PHONY: clean, tests
 
-all: cli cli_db
-	nitserial src/app.nit -o src/app_serial.nit
-	nitc src/app.nit -m app_serial -o bin/brewnit_server
+all: cli server
 
 cli: parser bin
 	nitc src/cli.nit -o bin/cli
 
-cli_db: parser bin
-	nitc src/cli_db.nit -o bin/cli_db
+server: parser bin
+	nitserial src/app.nit -o src/app_serial.nit
+	nitc src/app.nit -m src/app_serial.nit -o bin/brewnit_server
 
 bin:
 	mkdir -p bin
