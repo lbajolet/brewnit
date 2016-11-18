@@ -10,3 +10,7 @@ brewnit
 **/Recipe.html
 **/*.swp
 tests/dummy_brewnit
+www/node_modules/*
+**/*.orig
+**/*.map
+www/app/*.js
