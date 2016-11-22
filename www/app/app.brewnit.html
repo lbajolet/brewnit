@@ -1,0 +1,12 @@
+<md-sidenav-layout>
+
+  <md-toolbar color="primary">
+    Brewnit
+    <span class="app-toolbar-filler"></span>
+  </md-toolbar>
+
+  <div *ngFor="let fr of yeasts">
+	<yeast-card [yeast]='fr'></yeast-card>
+  </div>
+
+</md-sidenav-layout>
