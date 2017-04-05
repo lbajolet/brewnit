@@ -21,5 +21,6 @@ reset_db:
 
 check: tests
 tests:
+	nitunit .
 	cd tests && $(MAKE) clean
 	cd tests && $(MAKE)
