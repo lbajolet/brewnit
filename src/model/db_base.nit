@@ -44,7 +44,6 @@ end
 
 # A database entity
 class Entity
-	super Jsonable
 	serialize
 
 	# The database context `self` is linked to
@@ -73,8 +72,6 @@ class Entity
 
 	# Basic template for deleting `self` in database
 	protected fun basic_delete(query: String): Bool is abstract
-
-	redef fun to_json do return serialize_to_json
 end
 
 # An entity with a single ID field
