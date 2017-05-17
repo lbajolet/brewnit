@@ -6,7 +6,7 @@ all: reset_db
 	./tests.sh
 
 reset_db:
-	-rm dummy_brewnit 2&> /dev/null
+	-rm dummy_brewnit 2> /dev/null
 	sqlite3 dummy_brewnit < ../db_scripts/init.sql
 
 clean:

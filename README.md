@@ -121,7 +121,7 @@ The attenuation of the yeast is however a significant information to provide sin
 
 The information about your yeast should be entered in the following format
 
-~~~
+~~~raw
 YEAST "name"
 	attenuation: n (in percent)
 	flocculation: Low/Medium/High
